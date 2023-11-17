@@ -1,0 +1,4 @@
+NSCameraUsageDescription = "Om 'n foto of video te neem, benodig hierdie toepassing toestemming om toegang tot die kamera te verkry.";
+NSPhotoLibraryUsageDescription = "Om data op te laai, benodig hierdie toepassing toestemming om toegang tot die fotobiblioteek te verkry.";
+NSContactsUsageDescription = "Om 'n telefoonnommer te kies, benodig hierdie toepassing toestemming om toegang tot jou kontakte te verkry.";
+NSFaceIDUsageDescription = "Om biometrie te gebruik, benodig hierdie toepassing toestemming om toegang tot jou faceid of biometrie te verkry.";

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "267638534045",
+    "project_id": "reqra-14132",
+    "storage_bucket": "reqra-14132.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267638534045:android:ed4a1dd8e54ebbf9dd0974",
+        "android_client_info": {
+          "package_name": "com.reqra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267638534045-5q06qr2tc65o3tsk0uieuo3jt0achl86.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChuTuZThtDklhulTBlozwzSgX4l507IwE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "267638534045-5q06qr2tc65o3tsk0uieuo3jt0achl86.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "267638534045-rs36gj4doua3m65rm6oopjso5p3ou0re.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.reqra"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

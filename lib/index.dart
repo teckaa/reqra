@@ -1,0 +1,197 @@
+// Export pages
+export '/application/backend/d_w_authentications/email_authentications/register/register_widget.dart'
+    show RegisterWidget;
+export '/application/backend/d_w_authentications/email_authentications/forget_password/forget_password_widget.dart'
+    show ForgetPasswordWidget;
+export '/application/backend/d_w_authentications/email_authentications/reset_password/reset_password_widget.dart'
+    show ResetPasswordWidget;
+export '/application/backend/d_w_dashboard/dashboard/dashboard_widget.dart'
+    show DashboardWidget;
+export '/application/backend/d_w_plugins/cryptos/users/order_successful/order_successful_widget.dart'
+    show OrderSuccessfulWidget;
+export '/application/backend/d_w_plugins/cryptos/users/order_activities/order_activities_widget.dart'
+    show OrderActivitiesWidget;
+export '/application/backend/d_w_plugins/cryptos/users/read_order/read_order_widget.dart'
+    show ReadOrderWidget;
+export '/application/backend/d_w_authentications/welcome/welcome_widget.dart'
+    show WelcomeWidget;
+export '/application/backend/d_w_settings/users/notifications/notifications_widget.dart'
+    show NotificationsWidget;
+export '/application/backend/d_w_settings/users/language/language_widget.dart'
+    show LanguageWidget;
+export '/application/backend/d_w_plugins/cryptos/users/list_of_crypto_orders/list_of_crypto_orders_widget.dart'
+    show ListOfCryptoOrdersWidget;
+export '/application/backend/d_w_plugins/gift_cards/cash_card/cash_card_widget.dart'
+    show CashCardWidget;
+export '/application/backend/d_w_plugins/cryptos/admin/wallets/cryptos/list_of_wallets/list_of_wallets_widget.dart'
+    show ListOfWalletsWidget;
+export '/application/backend/d_w_settings/users/settings/settings_widget.dart'
+    show SettingsWidget;
+export '/application/backend/d_w_plugins/cryptos/users/create_order/create_order_widget.dart'
+    show CreateOrderWidget;
+export '/application/backend/d_w_authentications/email_authentications/login/login_widget.dart'
+    show LoginWidget;
+export '/application/backend/d_w_users/user/profile/profile_widget.dart'
+    show ProfileWidget;
+export '/application/backend/d_w_users/user/security/change_password/change_password_widget.dart'
+    show ChangePasswordWidget;
+export '/application/backend/d_w_users/user/personal_information/personal_information_widget.dart'
+    show PersonalInformationWidget;
+export '/application/backend/d_w_users/user/security/create_pin/create_pin_widget.dart'
+    show CreatePinWidget;
+export '/application/backend/d_w_users/user/security/security/security_widget.dart'
+    show SecurityWidget;
+export '/application/backend/d_w_settings/users/appearance/appearance_widget.dart'
+    show AppearanceWidget;
+export '/application/frontend/themes/home/home_widget.dart' show HomeWidget;
+export '/application/frontend/themes/about_us/about_us_widget.dart'
+    show AboutUsWidget;
+export '/application/frontend/themes/faqs/faqs_widget.dart' show FaqsWidget;
+export '/application/frontend/themes/legal/legal_widget.dart' show LegalWidget;
+export '/application/backend/d_w_users/admin/list_of_users/list_of_users_widget.dart'
+    show ListOfUsersWidget;
+export '/application/backend/d_w_users/admin/create_user/create_user_widget.dart'
+    show CreateUserWidget;
+export '/application/backend/d_w_posts/list_of_posts_classic/list_of_posts_classic_widget.dart'
+    show ListOfPostsClassicWidget;
+export '/application/frontend/themes/single/single_widget.dart'
+    show SingleWidget;
+export '/application/backend/d_w_media/list_of_media/list_of_media_widget.dart'
+    show ListOfMediaWidget;
+export '/application/backend/d_w_settings/admin/currency/currency_widget.dart'
+    show CurrencyWidget;
+export '/application/frontend/themes/abuja/crypto/crypto_widget.dart'
+    show CryptoWidget;
+export '/application/frontend/themes/abuja/gift_cards/gift_cards_widget.dart'
+    show GiftCardsWidget;
+export '/application/frontend/themes/contact/contact_widget.dart'
+    show ContactWidget;
+export '/application/frontend/themes/blog/blog_widget.dart' show BlogWidget;
+export '/application/backend/d_w_settings/admin/app_name/app_name_widget.dart'
+    show AppNameWidget;
+export '/application/backend/d_w_plugins/bill_payments/users/list_of_services/list_of_services_widget.dart'
+    show ListOfServicesWidget;
+export '/application/backend/d_w_plugins/bill_payments/users/create_airtime/create_airtime_widget.dart'
+    show CreateAirtimeWidget;
+export '/application/backend/d_w_authentications/email_authentications/email_sent_forget_password/email_sent_forget_password_widget.dart'
+    show EmailSentForgetPasswordWidget;
+export '/application/backend/d_w_authentications/email_authentications/verify_o_t_p/verify_o_t_p_widget.dart'
+    show VerifyOTPWidget;
+export '/application/backend/d_w_authentications/email_authentications/verify_register/verify_register_widget.dart'
+    show VerifyRegisterWidget;
+export '/application/backend/d_w_users/user/kyc_bvn/kyc_bvn_widget.dart'
+    show KycBvnWidget;
+export '/application/backend/d_w_users/user/edit_address/edit_address_widget.dart'
+    show EditAddressWidget;
+export '/application/backend/d_w_plugins/bill_payments/list_of_bill_orders/list_of_bill_orders_widget.dart'
+    show ListOfBillOrdersWidget;
+export '/application/backend/d_w_users/user/fund_wallet/fund_wallet/fund_wallet_widget.dart'
+    show FundWalletWidget;
+export '/application/backend/d_w_settings/admin/app_email/app_email_widget.dart'
+    show AppEmailWidget;
+export '/application/backend/d_w_settings/admin/a_p_i_integration/a_p_i_integration_widget.dart'
+    show APIIntegrationWidget;
+export '/application/backend/d_w_settings/admin/announcements/list_of_annonucements/list_of_annonucements_widget.dart'
+    show ListOfAnnonucementsWidget;
+export '/application/backend/d_w_plugins/e_commerce/checkout/checkout_widget.dart'
+    show CheckoutWidget;
+export '/application/backend/d_w_plugins/e_commerce/product/product_widget.dart'
+    show ProductWidget;
+export '/application/backend/d_w_plugins/e_commerce/admin/products/list_of_products/list_of_products_widget.dart'
+    show ListOfProductsWidget;
+export '/application/backend/d_w_plugins/fintech/users/visual_cards/virtual_card/virtual_card_widget.dart'
+    show VirtualCardWidget;
+export '/application/backend/d_w_plugins/fintech/users/visual_cards/list_of_cards_orders/list_of_cards_orders_widget.dart'
+    show ListOfCardsOrdersWidget;
+export '/application/backend/d_w_plugins/plugins/plugins_widget.dart'
+    show PluginsWidget;
+export '/application/backend/d_w_plugins/fintech/users/list_of_transfer/list_of_transfer_widget.dart'
+    show ListOfTransferWidget;
+export '/application/backend/d_w_plugins/fintech/users/transfer/transfer_widget.dart'
+    show TransferWidget;
+export '/application/backend/d_w_plugins/fintech/users/transfer_amount/transfer_amount_widget.dart'
+    show TransferAmountWidget;
+export '/application/backend/d_w_plugins/fintech/admin/fintech_settings/fintech_settings_widget.dart'
+    show FintechSettingsWidget;
+export '/application/backend/d_w_plugins/bill_payments/admin/settings/bill_settings/bill_settings_widget.dart'
+    show BillSettingsWidget;
+export '/application/backend/d_w_plugins/cryptos/admin/crypto_settings/crypto_settings_widget.dart'
+    show CryptoSettingsWidget;
+export '/application/backend/d_w_plugins/e_commerce/admin/ecommerce_settings/ecommerce_settings_widget.dart'
+    show EcommerceSettingsWidget;
+export '/application/backend/d_w_plugins/gift_cards/admin/giftcards_settings/giftcards_settings_widget.dart'
+    show GiftcardsSettingsWidget;
+export '/application/backend/d_w_plugins/bill_payments/admin/list_of_bill_orders_for_admin/list_of_bill_orders_for_admin_widget.dart'
+    show ListOfBillOrdersForAdminWidget;
+export '/application/frontend/themes/lagos/airtime/airtime_widget.dart'
+    show AirtimeWidget;
+export '/application/frontend/themes/lagos/data_bundle/data_bundle_widget.dart'
+    show DataBundleWidget;
+export '/application/frontend/themes/lagos/cable_t_v/cable_t_v_widget.dart'
+    show CableTVWidget;
+export '/application/frontend/themes/lagos/electricity/electricity_widget.dart'
+    show ElectricityWidget;
+export '/application/frontend/themes/lagos/internet_wifi/internet_wifi_widget.dart'
+    show InternetWifiWidget;
+export '/application/frontend/themes/lagos/education/education_widget.dart'
+    show EducationWidget;
+export '/application/backend/d_w_plugins/bill_payments/users/order_successful_bill/order_successful_bill_widget.dart'
+    show OrderSuccessfulBillWidget;
+export '/application/backend/d_w_settings/admin/app_logo/app_logo_widget.dart'
+    show AppLogoWidget;
+export '/application/backend/d_w_plugins/fintech/users/transfer_successful/transfer_successful_widget.dart'
+    show TransferSuccessfulWidget;
+export '/application/backend/d_w_recipients/users/list_of_recipients/list_of_recipients_widget.dart'
+    show ListOfRecipientsWidget;
+export '/application/backend/d_w_plugins/bill_payments/users/create_cable_t_v/create_cable_t_v_widget.dart'
+    show CreateCableTVWidget;
+export '/application/backend/d_w_plugins/bill_payments/users/create_internet_wifi/create_internet_wifi_widget.dart'
+    show CreateInternetWifiWidget;
+export '/application/backend/d_w_plugins/bill_payments/users/create_transport/create_transport_widget.dart'
+    show CreateTransportWidget;
+export '/application/backend/d_w_plugins/bill_payments/users/create_eletricity_bill/create_eletricity_bill_widget.dart'
+    show CreateEletricityBillWidget;
+export '/application/backend/d_w_settings/admin/help_center/help_center/help_center_widget.dart'
+    show HelpCenterWidget;
+export '/application/backend/d_w_users/user/security/pincode/pincode_widget.dart'
+    show PincodeWidget;
+export '/application/backend/d_w_users/user/security/biometric/biometric_widget.dart'
+    show BiometricWidget;
+export '/application/backend/d_w_settings/users/delete_account/delete_account_widget.dart'
+    show DeleteAccountWidget;
+export '/application/backend/d_w_users/user/security/reset_security_pin/reset_security_pin_widget.dart'
+    show ResetSecurityPinWidget;
+export '/application/backend/d_w_settings/admin/email_templates/list_of_email_templates/list_of_email_templates_widget.dart'
+    show ListOfEmailTemplatesWidget;
+export '/application/backend/d_w_settings/admin/permissions/permissions/permissions_widget.dart'
+    show PermissionsWidget;
+export '/application/backend/d_w_authentications/sms_authentication/login_sms/login_sms_widget.dart'
+    show LoginSmsWidget;
+export '/application/backend/d_w_authentications/sms_authentication/verify_s_m_s_o_t_p/verify_s_m_s_o_t_p_widget.dart'
+    show VerifySMSOTPWidget;
+export '/application/backend/d_w_authentications/sms_authentication/register_sms/register_sms_widget.dart'
+    show RegisterSmsWidget;
+export '/application/backend/d_w_settings/admin/links/links/links_widget.dart'
+    show LinksWidget;
+export '/application/backend/d_w_dashboard/setup/setup_application/setup_application_widget.dart'
+    show SetupApplicationWidget;
+export '/application/backend/d_w_posts/list_of_posts/list_of_posts_widget.dart'
+    show ListOfPostsWidget;
+export '/application/backend/d_w_themes/themes/themes_widget.dart'
+    show ThemesWidget;
+export '/application/backend/d_w_plugins/bill_payments/users/create_data_bundle/create_data_bundle_widget.dart'
+    show CreateDataBundleWidget;
+export '/application/backend/d_w_posts/door_way_editor/door_way_editor_widget.dart'
+    show DoorWayEditorWidget;
+export '/application/backend/d_w_messages/chat_page/chat_page_widget.dart'
+    show ChatPageWidget;
+export '/application/backend/d_w_messages/list_of_chats/list_of_chats_widget.dart'
+    show ListOfChatsWidget;
+export '/application/backend/d_w_messages/create_chat/create_chat_widget.dart'
+    show CreateChatWidget;
+export '/application/backend/d_w_messages/create_group_chat/create_group_chat_widget.dart'
+    show CreateGroupChatWidget;
+export '/application/backend/d_w_recipients/admin/manage_recipeints/manage_recipeints_widget.dart'
+    show ManageRecipeintsWidget;
+export '/application/backend/d_w_dashboard/setup/setup_application2/setup_application2_widget.dart'
+    show SetupApplication2Widget;

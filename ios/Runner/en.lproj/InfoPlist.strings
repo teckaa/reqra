@@ -1,0 +1,4 @@
+NSCameraUsageDescription = "In order to take a picture or video, this app requires permission to access the camera.";
+NSPhotoLibraryUsageDescription = "In order to upload data, this app requires permission to access the photo library.";
+NSContactsUsageDescription = "In order to choose a phone number, this app requires permission to access your contacts.";
+NSFaceIDUsageDescription = "In order to use biometrics, this app requires permission to access your faceid or biometrics.";
