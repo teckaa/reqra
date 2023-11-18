@@ -8,7 +8,6 @@ import '/application/components/shimmers/shimmer_card/shimmer_card_widget.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -226,10 +225,16 @@ class _APIIntegrationWidgetState extends State<APIIntegrationWidget>
                                                       Align(
                                                         alignment:
                                                             Alignment(-1.0, 0),
-                                                        child:
-                                                            FlutterFlowButtonTabBar(
-                                                          useToggleButtonStyle:
-                                                              true,
+                                                        child: TabBar(
+                                                          isScrollable: true,
+                                                          labelColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                          unselectedLabelColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primaryText,
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -262,32 +267,11 @@ class _APIIntegrationWidgetState extends State<APIIntegrationWidget>
                                                                         .containsKey(
                                                                             FlutterFlowTheme.of(context).labelSmallFamily),
                                                                   ),
-                                                          labelColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .secondaryBackground,
-                                                          unselectedLabelColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .primaryText,
-                                                          backgroundColor:
+                                                          indicatorColor:
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .primary,
-                                                          unselectedBackgroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .primaryBackground,
-                                                          borderWidth: 0.0,
-                                                          borderRadius: 0.0,
-                                                          elevation: 0.0,
-                                                          buttonMargin:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      0.0,
-                                                                      8.0,
-                                                                      0.0),
+                                                          indicatorWeight: 3.0,
                                                           tabs: [
                                                             Row(
                                                               mainAxisAlignment:

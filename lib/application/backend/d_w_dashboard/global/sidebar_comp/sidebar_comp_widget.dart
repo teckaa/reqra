@@ -1219,7 +1219,7 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                               logFirebaseEvent(
                                   'SidebarMenuItem-ManageRecipients_navigat');
 
-                              context.pushNamed('ManageRecipeints');
+                              context.pushNamed('ManageAds');
                             },
                             child: wrapWithModel(
                               model:

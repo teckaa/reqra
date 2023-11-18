@@ -7,7 +7,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
-import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/upload_data.dart';
@@ -132,8 +131,10 @@ class _CreateMediaWidgetState extends State<CreateMediaWidget>
                     children: [
                       Align(
                         alignment: Alignment(-1.0, 0),
-                        child: FlutterFlowButtonTabBar(
-                          useToggleButtonStyle: true,
+                        child: TabBar(
+                          labelColor: FlutterFlowTheme.of(context).primary,
+                          unselectedLabelColor:
+                              FlutterFlowTheme.of(context).primaryText,
                           labelStyle: FlutterFlowTheme.of(context)
                               .labelSmall
                               .override(
@@ -154,17 +155,8 @@ class _CreateMediaWidgetState extends State<CreateMediaWidget>
                                     FlutterFlowTheme.of(context)
                                         .labelSmallFamily),
                               ),
-                          labelColor: FlutterFlowTheme.of(context).white,
-                          unselectedLabelColor:
-                              FlutterFlowTheme.of(context).primaryText,
-                          backgroundColor: FlutterFlowTheme.of(context).primary,
-                          unselectedBackgroundColor:
-                              FlutterFlowTheme.of(context).primaryBackground,
-                          borderWidth: 0.0,
-                          borderRadius: 0.0,
-                          elevation: 0.0,
-                          buttonMargin: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 8.0, 0.0),
+                          indicatorColor: FlutterFlowTheme.of(context).primary,
+                          indicatorWeight: 3.0,
                           tabs: [
                             Tab(
                               text: FFLocalizations.of(context).getText(

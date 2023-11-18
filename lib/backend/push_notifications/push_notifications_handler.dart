@@ -289,6 +289,7 @@ final parametersBuilderMap =
   'CreateGroupChat': ParameterData.none(),
   'ManageRecipeints': ParameterData.none(),
   'SetupApplication2': ParameterData.none(),
+  'ManageAds': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

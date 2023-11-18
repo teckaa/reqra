@@ -216,9 +216,10 @@ class _BillSettingsWidgetState extends State<BillSettingsWidget>
                                                                   Alignment(
                                                                       -1.0, 0),
                                                               child: TabBar(
-                                                                labelColor: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
+                                                                labelColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
                                                                 unselectedLabelColor:
                                                                     FlutterFlowTheme.of(
                                                                             context)

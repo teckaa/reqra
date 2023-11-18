@@ -1,13 +1,16 @@
 import '/application/backend/d_w_plugins/bill_payments/components/list_of_bill_order_comp/list_of_bill_order_comp_widget.dart';
 import '/application/backend/d_w_users/user/components/account_balance/account_balance_widget.dart';
 import '/application/components/buttons/primary_button/primary_button_widget.dart';
+import '/application/components/icons/icon/icon_widget.dart';
 import '/application/components/layouts/icon_square_box/icon_square_box_widget.dart';
 import '/application/components/layouts/photo_grid_cover/photo_grid_cover_widget.dart';
+import '/application/components/shimmers/shimmer_card2/shimmer_card2_widget.dart';
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/components/ads_carousel_comp_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -215,8 +218,8 @@ class _DashboardForBillUserWidgetState
                                 buttonWidth: 200,
                                 buttonHeight: 45,
                                 disableStatusPara: false,
-                                buttonHoverBGColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
+                                buttonHoverBGColor:
+                                    FlutterFlowTheme.of(context).primaryText,
                                 buttonAction: () async {
                                   logFirebaseEvent(
                                       'DASHBOARD_FOR_BILL_USER_Container_o8l97r');
@@ -232,248 +235,273 @@ class _DashboardForBillUserWidgetState
                     ].divide(SizedBox(height: 15.0)),
                   ),
                 ),
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      FFLocalizations.of(context).getText(
-                        'abu54m1p' /* Quick Actions */,
-                      ),
-                      style: FlutterFlowTheme.of(context).labelMedium.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).labelMediumFamily,
-                            fontWeight: FontWeight.bold,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).labelMediumFamily),
-                          ),
-                    ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              logFirebaseEvent(
-                                  'DASHBOARD_FOR_BILL_USER_IconSquareBox-Ai');
-                              logFirebaseEvent(
-                                  'IconSquareBox-Airtime_navigate_to');
-
-                              context.pushNamed('CreateAirtime');
-                            },
-                            child: wrapWithModel(
-                              model: _model.iconSquareBoxAirtimeModel,
-                              updateCallback: () => setState(() {}),
-                              child: IconSquareBoxWidget(
-                                iconPara: Icon(
-                                  FFIcons.kcall,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                ),
-                                textPara: 'Airtime',
-                                iconBgColor: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                boxSize: 100,
-                                iconBorderColor:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                boxBordercolor:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                boxBgColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                textSize: 14,
-                                textColor:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                              ),
-                            ),
-                          ),
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              logFirebaseEvent(
-                                  'DASHBOARD_FOR_BILL_USER_IconSquareBox-Da');
-                              logFirebaseEvent(
-                                  'IconSquareBox-Data_navigate_to');
-
-                              context.pushNamed('CreateDataBundle');
-                            },
-                            child: wrapWithModel(
-                              model: _model.iconSquareBoxDataModel,
-                              updateCallback: () => setState(() {}),
-                              child: IconSquareBoxWidget(
-                                iconPara: Icon(
-                                  FFIcons.kwifi,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                ),
-                                textPara: 'Data',
-                                iconBgColor: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                boxSize: 100,
-                                iconBorderColor:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                boxBordercolor:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                boxBgColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                textSize: 14,
-                                textColor:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                              ),
-                            ),
-                          ),
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              logFirebaseEvent(
-                                  'DASHBOARD_FOR_BILL_USER_IconSquareBox-Ca');
-                              logFirebaseEvent(
-                                  'IconSquareBox-CableTV_navigate_to');
-
-                              context.pushNamed('CreateAirtime');
-                            },
-                            child: wrapWithModel(
-                              model: _model.iconSquareBoxCableTVModel,
-                              updateCallback: () => setState(() {}),
-                              child: IconSquareBoxWidget(
-                                iconPara: Icon(
-                                  FFIcons.kdevices1,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                ),
-                                textPara: 'Cable TV',
-                                iconBgColor: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                boxSize: 100,
-                                iconBorderColor:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                boxBordercolor:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                boxBgColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                textSize: 14,
-                                textColor:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                              ),
-                            ),
-                          ),
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              logFirebaseEvent(
-                                  'DASHBOARD_FOR_BILL_USER_IconSquareBox-Mo');
-                              logFirebaseEvent(
-                                  'IconSquareBox-More_navigate_to');
-
-                              context.pushNamed('ListOfServices');
-                            },
-                            child: wrapWithModel(
-                              model: _model.iconSquareBoxMoreModel,
-                              updateCallback: () => setState(() {}),
-                              child: IconSquareBoxWidget(
-                                iconPara: Icon(
-                                  FFIcons.kmore,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                ),
-                                textPara: 'More',
-                                iconBgColor: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                boxSize: 100,
-                                iconBorderColor:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                boxBordercolor:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                boxBgColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                textSize: 14,
-                                textColor:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                              ),
-                            ),
-                          ),
-                        ].divide(SizedBox(width: 10.0)),
-                      ),
-                    ),
-                  ].divide(SizedBox(height: 10.0)),
-                ),
                 Container(
-                  width: double.infinity,
-                  height: 70.0,
-                  child: CarouselSlider(
-                    items: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.network(
-                          getCORSProxyUrl(
-                            'https://picsum.photos/seed/865/600',
+                  width: 500.0,
+                  decoration: BoxDecoration(),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              'abu54m1p' /* Quick Actions */,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .labelMediumFamily,
+                                  fontWeight: FontWeight.bold,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .labelMediumFamily),
+                                ),
                           ),
-                          width: 300.0,
-                          height: 200.0,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.network(
-                          getCORSProxyUrl(
-                            'https://picsum.photos/seed/442/600',
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    logFirebaseEvent(
+                                        'DASHBOARD_FOR_BILL_USER_IconSquareBox-Ai');
+                                    logFirebaseEvent(
+                                        'IconSquareBox-Airtime_navigate_to');
+
+                                    context.pushNamed('CreateAirtime');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.iconSquareBoxAirtimeModel,
+                                    updateCallback: () => setState(() {}),
+                                    child: IconSquareBoxWidget(
+                                      iconPara: Icon(
+                                        FFIcons.kcall,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                      ),
+                                      textPara: 'Airtime',
+                                      iconBgColor: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      boxSize: 100,
+                                      iconBorderColor:
+                                          FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                      boxBordercolor:
+                                          FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                      boxBgColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      textSize: 14,
+                                      textColor: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                    ),
+                                  ),
+                                ),
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    logFirebaseEvent(
+                                        'DASHBOARD_FOR_BILL_USER_IconSquareBox-Da');
+                                    logFirebaseEvent(
+                                        'IconSquareBox-Data_navigate_to');
+
+                                    context.pushNamed('CreateDataBundle');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.iconSquareBoxDataModel,
+                                    updateCallback: () => setState(() {}),
+                                    child: IconSquareBoxWidget(
+                                      iconPara: Icon(
+                                        FFIcons.kwifi,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                      ),
+                                      textPara: 'Data',
+                                      iconBgColor: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      boxSize: 100,
+                                      iconBorderColor:
+                                          FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                      boxBordercolor:
+                                          FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                      boxBgColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      textSize: 14,
+                                      textColor: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                    ),
+                                  ),
+                                ),
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    logFirebaseEvent(
+                                        'DASHBOARD_FOR_BILL_USER_IconSquareBox-Ca');
+                                    logFirebaseEvent(
+                                        'IconSquareBox-CableTV_navigate_to');
+
+                                    context.pushNamed('CreateAirtime');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.iconSquareBoxCableTVModel,
+                                    updateCallback: () => setState(() {}),
+                                    child: IconSquareBoxWidget(
+                                      iconPara: Icon(
+                                        FFIcons.kdevices1,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                      ),
+                                      textPara: 'Cable TV',
+                                      iconBgColor: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      boxSize: 100,
+                                      iconBorderColor:
+                                          FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                      boxBordercolor:
+                                          FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                      boxBgColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      textSize: 14,
+                                      textColor: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                    ),
+                                  ),
+                                ),
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    logFirebaseEvent(
+                                        'DASHBOARD_FOR_BILL_USER_IconSquareBox-Mo');
+                                    logFirebaseEvent(
+                                        'IconSquareBox-More_navigate_to');
+
+                                    context.pushNamed('ListOfServices');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.iconSquareBoxMoreModel,
+                                    updateCallback: () => setState(() {}),
+                                    child: IconSquareBoxWidget(
+                                      iconPara: Icon(
+                                        FFIcons.kmore,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                      ),
+                                      textPara: 'More',
+                                      iconBgColor: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      boxSize: 100,
+                                      iconBorderColor:
+                                          FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                      boxBordercolor:
+                                          FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                      boxBgColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      textSize: 14,
+                                      textColor: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                    ),
+                                  ),
+                                ),
+                              ].divide(SizedBox(width: 10.0)),
+                            ),
                           ),
-                          width: 300.0,
-                          height: 200.0,
-                          fit: BoxFit.cover,
-                        ),
+                        ].divide(SizedBox(height: 10.0)),
                       ),
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.network(
-                          getCORSProxyUrl(
-                            'https://picsum.photos/seed/155/600',
-                          ),
-                          width: 300.0,
-                          height: 200.0,
-                          fit: BoxFit.cover,
+                      StreamBuilder<List<DwAppAdsRecord>>(
+                        stream: queryDwAppAdsRecord(
+                          queryBuilder: (dwAppAdsRecord) => dwAppAdsRecord
+                              .where(
+                                'ads_status',
+                                isEqualTo: true,
+                              )
+                              .orderBy('created_at', descending: true),
                         ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return ShimmerCard2Widget(
+                              itemNo: 2,
+                              itemSpacing: 2,
+                              itemHeight: 100,
+                            );
+                          }
+                          List<DwAppAdsRecord> listViewDwAppAdsRecordList =
+                              snapshot.data!;
+                          return ListView.separated(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: listViewDwAppAdsRecordList.length,
+                            separatorBuilder: (_, __) => SizedBox(height: 20.0),
+                            itemBuilder: (context, listViewIndex) {
+                              final listViewDwAppAdsRecord =
+                                  listViewDwAppAdsRecordList[listViewIndex];
+                              return Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      AdsCarouselCompWidget(
+                                        key: Key(
+                                            'Keyuhw_${listViewIndex}_of_${listViewDwAppAdsRecordList.length}'),
+                                        recordRef:
+                                            listViewDwAppAdsRecord.reference,
+                                      ),
+                                      if (listViewDwAppAdsRecord
+                                              .adsIsClosable ==
+                                          true)
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.00, -1.00),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 5.0, 5.0, 0.0),
+                                            child: IconWidget(
+                                              key: Key(
+                                                  'Key6gh_${listViewIndex}_of_${listViewDwAppAdsRecordList.length}'),
+                                              iconPara: Icon(
+                                                Icons.close_outlined,
+                                                color: Color(0x6BFF5963),
+                                                size: 24.0,
+                                              ),
+                                              iconActionPara: () async {},
+                                            ),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
                       ),
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.network(
-                          getCORSProxyUrl(
-                            'https://picsum.photos/seed/889/600',
-                          ),
-                          width: 300.0,
-                          height: 200.0,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ],
-                    carouselController: _model.carouselController ??=
-                        CarouselController(),
-                    options: CarouselOptions(
-                      initialPage: 1,
-                      viewportFraction: 0.9,
-                      disableCenter: true,
-                      enlargeCenterPage: true,
-                      enlargeFactor: 0.25,
-                      enableInfiniteScroll: true,
-                      scrollDirection: Axis.horizontal,
-                      autoPlay: false,
-                      onPageChanged: (index, _) =>
-                          _model.carouselCurrentIndex = index,
-                    ),
+                    ].divide(SizedBox(height: 20.0)),
                   ),
                 ),
               ].divide(SizedBox(height: 30.0)).addToEnd(SizedBox(height: 20.0)),

@@ -295,11 +295,45 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                               logFirebaseEvent(
                                                   'DASHBOARD_CircleMenuItem-Fintech_ON_TAP');
                                               logFirebaseEvent(
-                                                  'CircleMenuItem-Fintech_update_page_state');
-                                              setState(() {
-                                                _model.dafaultDashboard =
-                                                    'Fintech';
-                                              });
+                                                  'CircleMenuItem-Fintech_bottom_sheet');
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                barrierColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .overlay,
+                                                useSafeArea: true,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                      child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child: Container(
+                                                        height:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .height *
+                                                                0.8,
+                                                        child:
+                                                            DashboardForBillUserWidget(),
+                                                      ),
+                                                    ),
+                                                  ));
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
                                             },
                                             child: wrapWithModel(
                                               model: _model
@@ -322,7 +356,11 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                       children: [
                                         Builder(
                                           builder: (context) {
-                                            if ((valueOrDefault(currentUserDocument?.userRole, '') == 'Owner') ||
+                                            if ((valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.userRole,
+                                                        '') ==
+                                                    'User') ||
                                                 (valueOrDefault(
                                                         currentUserDocument
                                                             ?.userRole,
@@ -360,7 +398,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                     currentUserDocument
                                                         ?.userRole,
                                                     '') ==
-                                                'User') {
+                                                'Owner') {
                                               return Builder(
                                                 builder: (context) {
                                                   if (valueOrDefault<bool>(

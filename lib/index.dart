@@ -195,3 +195,5 @@ export '/application/backend/d_w_recipients/admin/manage_recipeints/manage_recip
     show ManageRecipeintsWidget;
 export '/application/backend/d_w_dashboard/setup/setup_application2/setup_application2_widget.dart'
     show SetupApplication2Widget;
+export '/application/backend/d_w_settings/admin/adverts/manage_ads/manage_ads_widget.dart'
+    show ManageAdsWidget;

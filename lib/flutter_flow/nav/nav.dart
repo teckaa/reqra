@@ -758,6 +758,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'setup/application2',
               requireAuth: true,
               builder: (context, params) => SetupApplication2Widget(),
+            ),
+            FFRoute(
+              name: 'ManageAds',
+              path: 'admin/settings/manage-app-ads',
+              requireAuth: true,
+              builder: (context, params) => ManageAdsWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

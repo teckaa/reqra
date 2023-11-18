@@ -6400,6 +6400,82 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'Configurez sans effort notre système de paiement de factures convivial. Profitez d\'une intégration rapide, de transactions sécurisées et d\'une expérience sans tracas pour vous et vos utilisateurs. Commencer aujourd\'hui!',
     },
   },
+  // ManageAds
+  {
+    'xupohahn': {
+      'en': 'Manage your App Ads',
+      'af': 'E-pos sjablone',
+      'es': 'Plantillas de correo electrónico',
+      'fr': 'Modèles d\'e-mails',
+    },
+    '5qonxrtp': {
+      'en':
+          'Empower your app\'s success! Start creating and managing text and image-based ads, enhancing visibility and engagement. Remember, these ads will exclusively appear on your users\' dashboards. Elevate your app\'s impact!',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '9rpkts68': {
+      'en': 'Ads Name',
+      'af': 'Sjabloon Naam',
+      'es': 'Nombre de la plantilla',
+      'fr': 'Nom du modèle',
+    },
+    'vttnu7ao': {
+      'en': 'Type',
+      'af': 'Tik',
+      'es': 'Tipo',
+      'fr': 'Taper',
+    },
+    'kbe7o8wa': {
+      'en': 'Date',
+      'af': 'Ontvanger(s)',
+      'es': 'Destinatario(s)',
+      'fr': 'Destinataire(s)',
+    },
+    'zcmiogsu': {
+      'en': 'Action',
+      'af': 'Aksie',
+      'es': 'Acción',
+      'fr': 'Action',
+    },
+    'nv0ttfch': {
+      'en': 'Preview',
+      'af': 'Voorskou',
+      'es': 'Avance',
+      'fr': 'Aperçu',
+    },
+    '9qgf6we8': {
+      'en': 'Update',
+      'af': 'Bestuur',
+      'es': 'Administrar',
+      'fr': 'Gérer',
+    },
+    'bvstlmqa': {
+      'en': 'Delete',
+      'af': 'Vee uit',
+      'es': 'Borrar',
+      'fr': 'Supprimer',
+    },
+    '236canuv': {
+      'en': 'Delete',
+      'af': 'Stuur toets',
+      'es': 'Enviar prueba',
+      'fr': 'Envoyer le test',
+    },
+    'wzzo1lkr': {
+      'en': 'Delete this Ads',
+      'af': 'Vee hierdie advertensies uit',
+      'es': 'Eliminar estos anuncios',
+      'fr': 'Supprimer cette annonce',
+    },
+    'cb8r4480': {
+      'en': 'Home',
+      'af': 'Tuis',
+      'es': 'Hogar',
+      'fr': 'Maison',
+    },
+  },
   // OrderBarcodeDetail
   {
     'sfwl2uuy': {
@@ -10897,6 +10973,187 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'af': 'Deur -',
       'es': 'Por -',
       'fr': 'Par -',
+    },
+  },
+  // CreateAds
+  {
+    '5428zu4c': {
+      'en': 'Ads',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'qkpf93u9': {
+      'en': 'Enable and Disable Ads',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '5dkm2ldm': {
+      'en':
+          'You have the flexibility to add multiple sliders within a single ad. Simply click the \'Add More\' button below to enhance your content.',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'a5npogl3': {
+      'en': 'Text Base Ads',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '8izqzzht': {
+      'en': 'Text Properties',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'xcc19tvb': {
+      'en': 'Text color',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '36300njz': {
+      'en': 'Text size',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'mynhav4o': {
+      'en': 'Background Properties',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '13dlad7t': {
+      'en': 'Background color',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '9zj4j8vh': {
+      'en': 'Backgroud height size',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '7g493stj': {
+      'en': 'Ads/Banner Design',
+      'af': 'App Store-prentgrootte (420 by 150)',
+      'es': 'Tamaño de imagen de la App Store (420 por 150)',
+      'fr': 'Taille de l’image de l’App Store (420 par 150)',
+    },
+    'u3uyh5ag': {
+      'en': 'Type your ads here',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'f02xvwm0': {
+      'en': 'Text Base Ads',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '22fcev9r': {
+      'en': 'Type of Ads',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'ny7u15fd': {
+      'en': 'Preview',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '3moij59y': {
+      'en': 'Enable auto play',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '0ba1hcp6': {
+      'en': 'Enable auto play',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'hesuqv82': {
+      'en': 'Closing of Ads',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'b5vgfwpt': {
+      'en': 'Enable closure',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'tlc69v3t': {
+      'en': 'Where to redirect to?',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'pbtni14k': {
+      'en': 'External Link/Page',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'c46kv8ze': {
+      'en': 'Internal Page',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'zj4p1o6b': {
+      'en': 'Please select...',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '1jn39tmq': {
+      'en': 'Search for an item...',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+  },
+  // ReadAds
+  {
+    '655c85nm': {
+      'en': 'External Link: ',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'c5efaac5': {
+      'en': 'Number of Slider: ',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'bre6eujs': {
+      'en': 'Auto Play: ',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'sff3w1gb': {
+      'en': 'Delay(Sec): ',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '4bym10y1': {
+      'en': 'Closable: ',
+      'af': '',
+      'es': '',
+      'fr': '',
     },
   },
   // Miscellaneous

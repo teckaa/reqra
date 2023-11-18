@@ -34,6 +34,21 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _BillApiKey = prefs.getString('ff_BillApiKey') ?? _BillApiKey;
     });
+    _safeInit(() {
+      _adsImageList = prefs
+              .getStringList('ff_adsImageList')
+              ?.map((x) {
+                try {
+                  return AdsFieldsStruct.fromSerializableMap(jsonDecode(x));
+                } catch (e) {
+                  print("Can't decode persisted data type. Error: $e.");
+                  return null;
+                }
+              })
+              .withoutNulls
+              .toList() ??
+          _adsImageList;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -112,6 +127,54 @@ class FFAppState extends ChangeNotifier {
   set BillApiKey(String _value) {
     _BillApiKey = _value;
     prefs.setString('ff_BillApiKey', _value);
+  }
+
+  List<AdsFieldsStruct> _adsImageList = [
+    AdsFieldsStruct.fromSerializableMap(jsonDecode(
+        '{\"ads_photo\":\"Hello World\",\"ads_image\":\"https://picsum.photos/seed/809/600\",\"ads_link\":\"URL LINK\"}')),
+    AdsFieldsStruct.fromSerializableMap(jsonDecode(
+        '{\"ads_photo\":\"Hello World 2\",\"ads_image\":\"https://picsum.photos/seed/509/600\",\"ads_link\":\"URL LINK 2\"}')),
+    AdsFieldsStruct.fromSerializableMap(jsonDecode(
+        '{\"ads_photo\":\"Hello World 3\",\"ads_image\":\"https://picsum.photos/seed/628/600\",\"ads_link\":\"URL LINK 3\"}'))
+  ];
+  List<AdsFieldsStruct> get adsImageList => _adsImageList;
+  set adsImageList(List<AdsFieldsStruct> _value) {
+    _adsImageList = _value;
+    prefs.setStringList(
+        'ff_adsImageList', _value.map((x) => x.serialize()).toList());
+  }
+
+  void addToAdsImageList(AdsFieldsStruct _value) {
+    _adsImageList.add(_value);
+    prefs.setStringList(
+        'ff_adsImageList', _adsImageList.map((x) => x.serialize()).toList());
+  }
+
+  void removeFromAdsImageList(AdsFieldsStruct _value) {
+    _adsImageList.remove(_value);
+    prefs.setStringList(
+        'ff_adsImageList', _adsImageList.map((x) => x.serialize()).toList());
+  }
+
+  void removeAtIndexFromAdsImageList(int _index) {
+    _adsImageList.removeAt(_index);
+    prefs.setStringList(
+        'ff_adsImageList', _adsImageList.map((x) => x.serialize()).toList());
+  }
+
+  void updateAdsImageListAtIndex(
+    int _index,
+    AdsFieldsStruct Function(AdsFieldsStruct) updateFn,
+  ) {
+    _adsImageList[_index] = updateFn(_adsImageList[_index]);
+    prefs.setStringList(
+        'ff_adsImageList', _adsImageList.map((x) => x.serialize()).toList());
+  }
+
+  void insertAtIndexInAdsImageList(int _index, AdsFieldsStruct _value) {
+    _adsImageList.insert(_index, _value);
+    prefs.setStringList(
+        'ff_adsImageList', _adsImageList.map((x) => x.serialize()).toList());
   }
 }
 
