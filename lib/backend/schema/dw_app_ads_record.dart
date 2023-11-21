@@ -87,6 +87,16 @@ class DwAppAdsRecord extends FirestoreRecord {
   bool get adsIsClosable => _adsIsClosable ?? false;
   bool hasAdsIsClosable() => _adsIsClosable != null;
 
+  // "ads_page" field.
+  List<String>? _adsPage;
+  List<String> get adsPage => _adsPage ?? const [];
+  bool hasAdsPage() => _adsPage != null;
+
+  // "ads_responsive" field.
+  List<String>? _adsResponsive;
+  List<String> get adsResponsive => _adsResponsive ?? const [];
+  bool hasAdsResponsive() => _adsResponsive != null;
+
   void _initializeFields() {
     _createdAt = snapshotData['created_at'] as DateTime?;
     _modifiedAt = snapshotData['modified_at'] as DateTime?;
@@ -105,6 +115,8 @@ class DwAppAdsRecord extends FirestoreRecord {
     _adsAutoplayStatus = snapshotData['ads_autoplay_status'] as bool?;
     _adsAnimationDelay = castToType<int>(snapshotData['ads_animation_delay']);
     _adsIsClosable = snapshotData['ads_is_closable'] as bool?;
+    _adsPage = getDataList(snapshotData['ads_page']);
+    _adsResponsive = getDataList(snapshotData['ads_responsive']);
   }
 
   static CollectionReference get collection =>
@@ -196,7 +208,9 @@ class DwAppAdsRecordDocumentEquality implements Equality<DwAppAdsRecord> {
         e1?.adsType == e2?.adsType &&
         e1?.adsAutoplayStatus == e2?.adsAutoplayStatus &&
         e1?.adsAnimationDelay == e2?.adsAnimationDelay &&
-        e1?.adsIsClosable == e2?.adsIsClosable;
+        e1?.adsIsClosable == e2?.adsIsClosable &&
+        listEquality.equals(e1?.adsPage, e2?.adsPage) &&
+        listEquality.equals(e1?.adsResponsive, e2?.adsResponsive);
   }
 
   @override
@@ -214,7 +228,9 @@ class DwAppAdsRecordDocumentEquality implements Equality<DwAppAdsRecord> {
         e?.adsType,
         e?.adsAutoplayStatus,
         e?.adsAnimationDelay,
-        e?.adsIsClosable
+        e?.adsIsClosable,
+        e?.adsPage,
+        e?.adsResponsive
       ]);
 
   @override

@@ -211,7 +211,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             ),
             FFRoute(
               name: 'Profile',
-              path: 'account/profile',
+              path: 'dashboard/account/profile',
               requireAuth: true,
               builder: (context, params) => params.isEmpty
                   ? NavBarPage(initialPage: 'Profile')
@@ -222,25 +222,25 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             ),
             FFRoute(
               name: 'ChangePassword',
-              path: 'account/security/password',
+              path: 'dashboard/account/security/password',
               requireAuth: true,
               builder: (context, params) => ChangePasswordWidget(),
             ),
             FFRoute(
               name: 'PersonalInformation',
-              path: 'account/personal-info',
+              path: 'dashboard/account/personal-info',
               requireAuth: true,
               builder: (context, params) => PersonalInformationWidget(),
             ),
             FFRoute(
               name: 'CreatePin',
-              path: 'account/security/pin',
+              path: 'dashboard/account/security/pin',
               requireAuth: true,
               builder: (context, params) => CreatePinWidget(),
             ),
             FFRoute(
               name: 'Security',
-              path: 'account/security',
+              path: 'dashboard/account/security',
               requireAuth: true,
               builder: (context, params) => SecurityWidget(),
             ),
@@ -370,13 +370,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             ),
             FFRoute(
               name: 'KYC-BVN',
-              path: 'account/kyc-bvn',
+              path: 'dashboard/account/kyc-bvn',
               requireAuth: true,
               builder: (context, params) => KycBvnWidget(),
             ),
             FFRoute(
               name: 'EditAddress',
-              path: 'account/edit-address',
+              path: 'dashboard/account/edit-address',
               requireAuth: true,
               builder: (context, params) => EditAddressWidget(),
             ),
@@ -617,15 +617,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             ),
             FFRoute(
               name: 'Pincode',
-              path: 'account/security/pincode',
+              path: 'dashboard/account/security/pincode',
               requireAuth: true,
               builder: (context, params) => PincodeWidget(),
             ),
             FFRoute(
-              name: 'Biometric',
-              path: 'account/settings/biometric',
+              name: 'LoginBiometric',
+              path: 'dashboard/account/security/biometric',
               requireAuth: true,
-              builder: (context, params) => BiometricWidget(),
+              builder: (context, params) => LoginBiometricWidget(),
             ),
             FFRoute(
               name: 'DeleteAccount',
@@ -635,7 +635,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             ),
             FFRoute(
               name: 'ResetSecurityPin',
-              path: 'account/security/pin/reset',
+              path: 'dashboard/account/security/pin/reset',
               requireAuth: true,
               builder: (context, params) => ResetSecurityPinWidget(),
             ),
@@ -764,6 +764,36 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'admin/settings/manage-app-ads',
               requireAuth: true,
               builder: (context, params) => ManageAdsWidget(),
+            ),
+            FFRoute(
+              name: 'TransactionBiometric',
+              path: 'dashboard/account/settings/transaction-biometric',
+              requireAuth: true,
+              builder: (context, params) => TransactionBiometricWidget(),
+            ),
+            FFRoute(
+              name: 'ManageSecurity',
+              path: 'admin/settings/manage-security',
+              requireAuth: true,
+              builder: (context, params) => ManageSecurityWidget(),
+            ),
+            FFRoute(
+              name: 'CreateTransactionPin',
+              path: 'dashboard/account/security/create-transaction-pin',
+              requireAuth: true,
+              builder: (context, params) => CreateTransactionPinWidget(),
+            ),
+            FFRoute(
+              name: 'ResetTransactionPin',
+              path: 'dashboard/account/security/reset-transaction-pin',
+              requireAuth: true,
+              builder: (context, params) => ResetTransactionPinWidget(),
+            ),
+            FFRoute(
+              name: 'TransactionSecurity',
+              path: 'dashboard/account/transaction-security',
+              requireAuth: true,
+              builder: (context, params) => TransactionSecurityWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

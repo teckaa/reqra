@@ -174,66 +174,76 @@ class _ThemesWidgetState extends State<ThemesWidget> {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        20.0, 0.0, 0.0, 0.0),
-                                                child: wrapWithModel(
-                                                  model: _model
-                                                      .primaryRoundedButtonModel,
-                                                  updateCallback: () =>
-                                                      setState(() {}),
-                                                  child:
-                                                      PrimaryRoundedButtonWidget(
-                                                    buttonText: 'Create Theme',
-                                                    buttonWidth: 150,
-                                                    disableStatusPara: false,
-                                                    buttonAction: () async {
-                                                      logFirebaseEvent(
-                                                          'THEMES_PAGE_Container_cv745g6c_CALLBACK');
-                                                      logFirebaseEvent(
-                                                          'PrimaryRoundedButton_bottom_sheet');
-                                                      await showModalBottomSheet(
-                                                        isScrollControlled:
-                                                            true,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        barrierColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .overlay,
-                                                        useSafeArea: true,
-                                                        context: context,
-                                                        builder: (context) {
-                                                          return WebViewAware(
-                                                              child:
-                                                                  GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
-                                                            child: Padding(
-                                                              padding: MediaQuery
-                                                                  .viewInsetsOf(
-                                                                      context),
-                                                              child:
-                                                                  CreateThemeWidget(),
-                                                            ),
-                                                          ));
-                                                        },
-                                                      ).then((value) =>
-                                                          safeSetState(() {}));
-                                                    },
+                                              if (responsiveVisibility(
+                                                context: context,
+                                                phone: false,
+                                                tablet: false,
+                                                tabletLandscape: false,
+                                                desktop: false,
+                                              ))
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          20.0, 0.0, 0.0, 0.0),
+                                                  child: wrapWithModel(
+                                                    model: _model
+                                                        .primaryRoundedButtonModel,
+                                                    updateCallback: () =>
+                                                        setState(() {}),
+                                                    child:
+                                                        PrimaryRoundedButtonWidget(
+                                                      buttonText:
+                                                          'Create Theme',
+                                                      buttonWidth: 150,
+                                                      disableStatusPara: false,
+                                                      buttonAction: () async {
+                                                        logFirebaseEvent(
+                                                            'THEMES_PAGE_Container_cv745g6c_CALLBACK');
+                                                        logFirebaseEvent(
+                                                            'PrimaryRoundedButton_bottom_sheet');
+                                                        await showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          barrierColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .overlay,
+                                                          useSafeArea: true,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                              onTap: () => _model
+                                                                      .unfocusNode
+                                                                      .canRequestFocus
+                                                                  ? FocusScope.of(
+                                                                          context)
+                                                                      .requestFocus(
+                                                                          _model
+                                                                              .unfocusNode)
+                                                                  : FocusScope.of(
+                                                                          context)
+                                                                      .unfocus(),
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    CreateThemeWidget(),
+                                                              ),
+                                                            ));
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(
+                                                                () {}));
+                                                      },
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(

@@ -33,13 +33,13 @@ export '/application/backend/d_w_authentications/email_authentications/login/log
     show LoginWidget;
 export '/application/backend/d_w_users/user/profile/profile_widget.dart'
     show ProfileWidget;
-export '/application/backend/d_w_users/user/security/change_password/change_password_widget.dart'
+export '/application/backend/d_w_users/user/security/login/change_password/change_password_widget.dart'
     show ChangePasswordWidget;
 export '/application/backend/d_w_users/user/personal_information/personal_information_widget.dart'
     show PersonalInformationWidget;
-export '/application/backend/d_w_users/user/security/create_pin/create_pin_widget.dart'
+export '/application/backend/d_w_users/user/security/login/create_pin/create_pin_widget.dart'
     show CreatePinWidget;
-export '/application/backend/d_w_users/user/security/security/security_widget.dart'
+export '/application/backend/d_w_users/user/security/security_widget.dart'
     show SecurityWidget;
 export '/application/backend/d_w_settings/users/appearance/appearance_widget.dart'
     show AppearanceWidget;
@@ -153,13 +153,13 @@ export '/application/backend/d_w_plugins/bill_payments/users/create_eletricity_b
     show CreateEletricityBillWidget;
 export '/application/backend/d_w_settings/admin/help_center/help_center/help_center_widget.dart'
     show HelpCenterWidget;
-export '/application/backend/d_w_users/user/security/pincode/pincode_widget.dart'
+export '/application/backend/d_w_users/user/security/login/pincode/pincode_widget.dart'
     show PincodeWidget;
-export '/application/backend/d_w_users/user/security/biometric/biometric_widget.dart'
-    show BiometricWidget;
+export '/application/backend/d_w_users/user/security/login/login_biometric/login_biometric_widget.dart'
+    show LoginBiometricWidget;
 export '/application/backend/d_w_settings/users/delete_account/delete_account_widget.dart'
     show DeleteAccountWidget;
-export '/application/backend/d_w_users/user/security/reset_security_pin/reset_security_pin_widget.dart'
+export '/application/backend/d_w_users/user/security/login/reset_security_pin/reset_security_pin_widget.dart'
     show ResetSecurityPinWidget;
 export '/application/backend/d_w_settings/admin/email_templates/list_of_email_templates/list_of_email_templates_widget.dart'
     show ListOfEmailTemplatesWidget;
@@ -195,5 +195,15 @@ export '/application/backend/d_w_recipients/admin/manage_recipeints/manage_recip
     show ManageRecipeintsWidget;
 export '/application/backend/d_w_dashboard/setup/setup_application2/setup_application2_widget.dart'
     show SetupApplication2Widget;
-export '/application/backend/d_w_settings/admin/adverts/manage_ads/manage_ads_widget.dart'
+export '/application/backend/d_w_settings/admin/adverts/admin/manage_ads/manage_ads_widget.dart'
     show ManageAdsWidget;
+export '/application/backend/d_w_users/user/security/transaction/transaction_biometric/transaction_biometric_widget.dart'
+    show TransactionBiometricWidget;
+export '/application/backend/d_w_settings/admin/security/manage_security/manage_security_widget.dart'
+    show ManageSecurityWidget;
+export '/application/backend/d_w_users/user/security/transaction/create_transaction_pin/create_transaction_pin_widget.dart'
+    show CreateTransactionPinWidget;
+export '/application/backend/d_w_users/user/security/transaction/reset_transaction_pin/reset_transaction_pin_widget.dart'
+    show ResetTransactionPinWidget;
+export '/application/backend/d_w_users/user/transaction_security/transaction_security_widget.dart'
+    show TransactionSecurityWidget;

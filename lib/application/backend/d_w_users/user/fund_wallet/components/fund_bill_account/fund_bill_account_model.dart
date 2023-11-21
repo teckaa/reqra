@@ -38,6 +38,8 @@ class FundBillAccountModel extends FlutterFlowModel<FundBillAccountWidget> {
   late ModalFooterColumnModel modalFooterColumnModel;
   // Stores action output result for [Firestore Query - Query a collection] action in ModalFooterColumn widget.
   DwAppRecord? queryAppInfo;
+  // Stores action output result for [Firestore Query - Query a collection] action in ModalFooterColumn widget.
+  BillpaymentSettingsRecord? getFlutterwaveApiKey;
   // Stores action output result for [Backend Call - API (StandardPayment)] action in ModalFooterColumn widget.
   ApiCallResponse? apiResultForFlutterwave;
   // Stores action output result for [Backend Call - API (VerifyStandardPayment)] action in ModalFooterColumn widget.

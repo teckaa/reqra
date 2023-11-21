@@ -4,7 +4,6 @@ import '/application/backend/d_w_recipients/users/components/create_recipient/cr
 import '/application/backend/d_w_recipients/users/components/read_recipient/read_recipient_widget.dart';
 import '/application/backend/d_w_recipients/users/components/update_contact/update_contact_widget.dart';
 import '/application/components/buttons/primary_button/primary_button_widget.dart';
-import '/application/components/empty/empty_table/empty_table_widget.dart';
 import '/application/components/forms/search_text_field/search_text_field_widget.dart';
 import '/application/components/layouts/photo_grid/photo_grid_widget.dart';
 import '/application/components/layouts/title_with_back_button/title_with_back_button_widget.dart';

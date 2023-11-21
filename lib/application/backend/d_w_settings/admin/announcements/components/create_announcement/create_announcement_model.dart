@@ -34,6 +34,11 @@ class CreateAnnouncementModel
     annonucementComposerModel =
         createModel(context, () => AnnonucementComposerModel());
     modalFooterRowModel = createModel(context, () => ModalFooterRowModel());
+
+    annonucementComposerModel.textFieldTitleControllerValidator =
+        _formTextFieldValidator1;
+    annonucementComposerModel.textFieldMessageControllerValidator =
+        _formTextFieldValidator2;
   }
 
   void dispose() {
@@ -45,4 +50,32 @@ class CreateAnnouncementModel
   /// Action blocks are added here.
 
   /// Additional helper methods are added here.
+
+  String? _formTextFieldValidator1(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return FFLocalizations.of(context).getText(
+        '9wn2gfv8' /* Title is required */,
+      );
+    }
+
+    if (val.length < 3) {
+      return 'Requires at least 3 characters.';
+    }
+
+    return null;
+  }
+
+  String? _formTextFieldValidator2(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return FFLocalizations.of(context).getText(
+        '2jgld7xt' /* Message is required */,
+      );
+    }
+
+    if (val.length < 3) {
+      return 'Requires at least 3 characters.';
+    }
+
+    return null;
+  }
 }

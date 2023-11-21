@@ -180,6 +180,14 @@ class _FundBillAccountWidgetState extends State<FundBillAccountWidget>
                       singleRecord: true,
                     ).then((s) => s.firstOrNull);
                     _shouldSetState = true;
+                    // Action 4 - Get Flutterwave Api
+                    logFirebaseEvent(
+                        'ModalFooterColumn_Action4-GetFlutterwave');
+                    _model.getFlutterwaveApiKey =
+                        await queryBillpaymentSettingsRecordOnce(
+                      singleRecord: true,
+                    ).then((s) => s.firstOrNull);
+                    _shouldSetState = true;
                     if (widget.paymentChannel == 'Flutterwave') {
                       // Action 4 - Process flutterwave
                       logFirebaseEvent(
@@ -193,10 +201,13 @@ class _FundBillAccountWidgetState extends State<FundBillAccountWidget>
                         customerPhonenumber: currentPhoneNumber,
                         customerFullname:
                             '${valueOrDefault(currentUserDocument?.firstName, '')} ${valueOrDefault(currentUserDocument?.lastName, '')}',
-                        currency: 'NGN',
+                        currency: _model.getFlutterwaveApiKey?.pluginCurrency,
                         appName: _model.queryAppInfo?.appName,
-                        redirectUrl:
-                            'https://teckaapay-3sjd993.flutterflow.app/dashboard',
+                        redirectUrl: _model
+                            .getFlutterwaveApiKey?.providerPaymentRedirectUrl,
+                        appSquareLogo: _model.queryAppInfo?.appLightSquareLogo,
+                        apiKey:
+                            _model.getFlutterwaveApiKey?.pluginProviderApiKey,
                       );
                       _shouldSetState = true;
                       if ((_model.apiResultForFlutterwave?.succeeded ?? true)) {

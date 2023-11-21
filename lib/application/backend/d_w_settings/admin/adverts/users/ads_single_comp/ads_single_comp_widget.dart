@@ -8,11 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'ads_carousel_comp_model.dart';
-export 'ads_carousel_comp_model.dart';
+import 'ads_single_comp_model.dart';
+export 'ads_single_comp_model.dart';
 
-class AdsCarouselCompWidget extends StatefulWidget {
-  const AdsCarouselCompWidget({
+class AdsSingleCompWidget extends StatefulWidget {
+  const AdsSingleCompWidget({
     Key? key,
     this.recordRef,
   }) : super(key: key);
@@ -20,11 +20,11 @@ class AdsCarouselCompWidget extends StatefulWidget {
   final DocumentReference? recordRef;
 
   @override
-  _AdsCarouselCompWidgetState createState() => _AdsCarouselCompWidgetState();
+  _AdsSingleCompWidgetState createState() => _AdsSingleCompWidgetState();
 }
 
-class _AdsCarouselCompWidgetState extends State<AdsCarouselCompWidget> {
-  late AdsCarouselCompModel _model;
+class _AdsSingleCompWidgetState extends State<AdsSingleCompWidget> {
+  late AdsSingleCompModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -35,7 +35,7 @@ class _AdsCarouselCompWidgetState extends State<AdsCarouselCompWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => AdsCarouselCompModel());
+    _model = createModel(context, () => AdsSingleCompModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -76,22 +76,26 @@ class _AdsCarouselCompWidgetState extends State<AdsCarouselCompWidget> {
                     itemCount: listOfDesign.length,
                     itemBuilder: (context, listOfDesignIndex, _) {
                       final listOfDesignItem = listOfDesign[listOfDesignIndex];
-                      return Stack(
-                        children: [
-                          if (columnDwAppAdsRecord.adsType == 'ImageBase')
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                logFirebaseEvent(
-                                    'ADS_CAROUSEL_Image_4hknneuw_ON_TAP');
-                                logFirebaseEvent('Image_launch_u_r_l');
-                                await launchURL(
-                                    listOfDesignItem.adsExternalLocation);
-                              },
-                              child: ClipRRect(
+                      return InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          logFirebaseEvent('ADS_SINGLE_Stack_g3pkw6wt_ON_TAP');
+                          if (columnDwAppAdsRecord.adsIsClosable == true) {
+                            logFirebaseEvent('Stack_launch_u_r_l');
+                            await launchURL(
+                                listOfDesignItem.adsExternalLocation);
+                            return;
+                          } else {
+                            return;
+                          }
+                        },
+                        child: Stack(
+                          children: [
+                            if (columnDwAppAdsRecord.adsType == 'ImageBase')
+                              ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.network(
                                   getCORSProxyUrl(
@@ -102,21 +106,8 @@ class _AdsCarouselCompWidgetState extends State<AdsCarouselCompWidget> {
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                            ),
-                          if (columnDwAppAdsRecord.adsType == 'TextBase')
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                logFirebaseEvent(
-                                    'ADS_CAROUSEL_Container_l9rlykot_ON_TAP');
-                                logFirebaseEvent('Container_launch_u_r_l');
-                                await launchURL(
-                                    listOfDesignItem.adsExternalLocation);
-                              },
-                              child: Container(
+                            if (columnDwAppAdsRecord.adsType == 'TextBase')
+                              Container(
                                 width: double.infinity,
                                 height: 100.0,
                                 decoration: BoxDecoration(
@@ -151,8 +142,8 @@ class _AdsCarouselCompWidgetState extends State<AdsCarouselCompWidget> {
                                   ),
                                 ),
                               ),
-                            ),
-                        ],
+                          ],
+                        ),
                       );
                     },
                     carouselController: _model.carouselController ??=

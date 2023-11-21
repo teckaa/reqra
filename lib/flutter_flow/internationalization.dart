@@ -1320,7 +1320,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // CreatePin
   {
     '20z2c1xe': {
-      'en': 'Security pin',
+      'en': 'Security Pin',
       'af': 'Sekuriteits kode',
       'es': 'PIN Seguridad',
       'fr': 'Code de securité',
@@ -1463,13 +1463,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': 'Sécurité',
     },
     'w1zyhr1i': {
-      'en': 'Change password',
+      'en': 'Change Password',
       'af': 'Verander wagwoord',
       'es': 'Cambiar la contraseña',
       'fr': 'Changer le mot de passe',
     },
     'w00h8jf8': {
-      'en': 'Security pin',
+      'en': 'Security Pin',
       'af': 'Sekuriteits kode',
       'es': 'PIN Seguridad',
       'fr': 'Code de securité',
@@ -2321,6 +2321,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '0xito67f': {
       'en': 'Choose an Amount',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'au32m14a': {
+      'en': 'Amount',
       'af': '',
       'es': '',
       'fr': '',
@@ -3187,57 +3193,24 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Anuncios',
       'fr': 'Annonces',
     },
-    '6madjbfr': {
-      'en': 'Enable',
-      'af': 'Aktiveer',
-      'es': 'Permitir',
-      'fr': 'Activer',
-    },
-    '5x4ci6ks': {
+    'b9t5i833': {
       'en':
-          'If you have recent or significant news to share, display a message in a bar across the top of your application or pop-up. When enabled, the Announcement Bar will be viewable on both your desktop and mobile website.',
-      'af':
-          'As jy onlangse of belangrike nuus het om te deel, vertoon \'n boodskap in \'n balk bo-aan jou toepassing of opspringer. Wanneer dit geaktiveer is, sal die aankondigingbalk sigbaar wees op beide jou rekenaar- en mobiele webwerf.',
-      'es':
-          'Si tiene noticias recientes o importantes para compartir, muestre un mensaje en una barra en la parte superior de su aplicación o ventana emergente. Cuando está habilitada, la barra de anuncios se podrá ver tanto en su escritorio como en su sitio web móvil.',
-      'fr':
-          'Si vous avez des nouvelles récentes ou importantes à partager, affichez un message dans une barre en haut de votre application ou pop-up. Lorsqu\'elle est activée, la barre d\'annonces sera visible à la fois sur votre ordinateur de bureau et sur votre site Web mobile.',
+          'If you have recent or noteworthy news to convey, showcase a message in a bar at the top of your application or as a pop-up. Once crafted and activated, the Announcement Bar will be visible on both your desktop and mobile websites. You have the flexibility to choose whether it appears exclusively on mobile, desktop, or on both platforms.',
+      'af': '',
+      'es': '',
+      'fr': '',
     },
-    'hptv1phs': {
-      'en': 'Title',
-      'af': 'Titel',
-      'es': 'Título',
-      'fr': 'Titre',
+    'excgrstu': {
+      'en': 'Date: ',
+      'af': '',
+      'es': '',
+      'fr': '',
     },
-    'pcamwbuy': {
-      'en': 'By - ',
-      'af': 'Deur -',
-      'es': 'Por -',
-      'fr': 'Par -',
-    },
-    'pery7sit': {
-      'en': 'Created At',
-      'af': 'Geskep by',
-      'es': 'Creado en',
-      'fr': 'Créé à',
-    },
-    'szgdj3o1': {
-      'en': 'Action',
-      'af': 'Aksie',
-      'es': 'Acción',
-      'fr': 'Action',
-    },
-    'w086ak5p': {
-      'en': 'Read',
-      'af': 'Lees',
-      'es': 'Leer',
-      'fr': 'Lire',
-    },
-    'fl1xa9jl': {
-      'en': 'Delete',
-      'af': 'Vee uit',
-      'es': 'Borrar',
-      'fr': 'Supprimer',
+    'brv9nbtu': {
+      'en': 'Creator: ',
+      'af': '',
+      'es': '',
+      'fr': '',
     },
     'enzjns3p': {
       'en': 'Home',
@@ -4002,7 +3975,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': 'Devise par défaut de la plateforme',
     },
     '9e431ul1': {
-      'en': 'NG',
+      'en': 'NGN',
       'af': 'Nigerië',
       'es': 'Nigeria',
       'fr': 'Nigeria',
@@ -4014,7 +3987,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': '',
     },
     'gxdu4c6h': {
-      'en': 'USA',
+      'en': 'USD',
       'af': '',
       'es': '',
       'fr': '',
@@ -4044,7 +4017,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': '',
     },
     '4ir8twqh': {
-      'en': 'Cash Back',
+      'en': 'Services / Providers',
       'af': 'Boodskap',
       'es': 'Mensaje',
       'fr': 'Message',
@@ -5470,7 +5443,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': 'Profil',
     },
   },
-  // Biometric
+  // LoginBiometric
   {
     '8cbh7wnj': {
       'en': 'Biometrics',
@@ -6410,7 +6383,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '5qonxrtp': {
       'en':
-          'Empower your app\'s success! Start creating and managing text and image-based ads, enhancing visibility and engagement. Remember, these ads will exclusively appear on your users\' dashboards. Elevate your app\'s impact!',
+          'Fuel the success of your app! Initiate the creation and management of captivating text and image-based ads to boost visibility and user engagement. Keep in mind, these exclusive ads won\'t just adorn your users\' dashboards but will also be strategically featured on selected pages. Take your app\'s impact to new heights!',
       'af': '',
       'es': '',
       'fr': '',
@@ -6474,6 +6447,250 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'af': 'Tuis',
       'es': 'Hogar',
       'fr': 'Maison',
+    },
+  },
+  // TransactionBiometric
+  {
+    'jh6fit9i': {
+      'en': 'Transaction Biometrics',
+      'af': 'Biometrie',
+      'es': 'Biometría',
+      'fr': 'Biométrie',
+    },
+    '0e8buzsq': {
+      'en': 'Biometrics',
+      'af': 'Biometrie',
+      'es': 'Biometría',
+      'fr': 'Biométrie',
+    },
+    'hmqm3prp': {
+      'en': 'Activate FaceID or Biometrics',
+      'af': 'Aktiveer FaceID of Biometrie',
+      'es': 'Activar FaceID o Biometría',
+      'fr': 'Activer FaceID ou la biométrie',
+    },
+    'glc0fnud': {
+      'en': 'Settings',
+      'af': 'Instellings',
+      'es': 'Ajustes',
+      'fr': 'Paramètres',
+    },
+  },
+  // ManageSecurity
+  {
+    'yjwfg7vp': {
+      'en': 'Manage Security',
+      'af': 'Koppel jou App Store en Web',
+      'es': 'Conecte su App Store y Web',
+      'fr': 'Connectez votre App Store et votre Web',
+    },
+    'mxr2kgoy': {
+      'en': 'Enhance Transaction Security',
+      'af':
+          'Verskaf asseblief jou webtoepassings-URL, Apple-toepassingswinkel-URL, Google Play Winkel-URL, Mac OS-toepassingswinkel-URL, Windows Winkel-toepassings-URL en Linux Winkel-URL in die skakels hieronder.\n\nMaak seker dat jy alle aflaaiskakels op verskillende toestelle en blaaiers toets om te verseker dat hulle korrek werk.\n\nNeem asseblief kennis dat ons tans besig is om Mac OS App Store, Windows Store en Linux Store URL\'s te ondersteun, en hierdie platforms word nog nie ten volle ondersteun nie.\n\nOnthou om hierdie skakels bygewerk te hou wanneer jy ook al \'n nuwe weergawe van jou program vrystel of as jou program se URL\'e verander.',
+      'es':
+          'Proporcione la URL de su aplicación web, la URL de la tienda de aplicaciones de Apple, la URL de la tienda de Google Play, la URL de la tienda de aplicaciones de Mac OS, la URL de la tienda de Windows y la URL de la tienda de Linux en los enlaces siguientes.\n\nAsegúrese de probar todos los enlaces de descarga en diferentes dispositivos y navegadores para garantizar que funcionen correctamente.\n\nTenga en cuenta que actualmente estamos trabajando para admitir las URL de Mac OS App Store, Windows Store y Linux Store, y estas plataformas aún no son totalmente compatibles.\n\nRecuerde mantener estos enlaces actualizados cada vez que publique una nueva versión de su aplicación o si las URL de su aplicación cambian.',
+      'fr':
+          'Veuillez fournir l\'URL de votre application Web, l\'URL de l\'App Store Apple, l\'URL du Google Play Store, l\'URL de l\'App Store Mac OS, l\'URL de l\'application Windows Store et l\'URL de la boutique Linux dans les liens ci-dessous.\n\nAssurez-vous de tester tous les liens de téléchargement sur différents appareils et navigateurs pour garantir qu\'ils fonctionnent correctement.\n\nVeuillez noter que nous travaillons actuellement sur la prise en charge des URL du Mac OS App Store, du Windows Store et du Linux Store, et que ces plates-formes ne sont pas encore entièrement prises en charge.\n\nN\'oubliez pas de maintenir ces liens à jour chaque fois que vous publiez une nouvelle version de votre application ou si les URL de votre application changent.',
+    },
+    'nps8be3g': {
+      'en':
+          'Enforce the use of your Transaction Pin before users can proceed to purchase a product. This added layer of security ensures a secure and protected transaction experience.',
+      'af':
+          'Verskaf asseblief jou webtoepassings-URL, Apple-toepassingswinkel-URL, Google Play Winkel-URL, Mac OS-toepassingswinkel-URL, Windows Winkel-toepassings-URL en Linux Winkel-URL in die skakels hieronder.\n\nMaak seker dat jy alle aflaaiskakels op verskillende toestelle en blaaiers toets om te verseker dat hulle korrek werk.\n\nNeem asseblief kennis dat ons tans besig is om Mac OS App Store, Windows Store en Linux Store URL\'s te ondersteun, en hierdie platforms word nog nie ten volle ondersteun nie.\n\nOnthou om hierdie skakels bygewerk te hou wanneer jy ook al \'n nuwe weergawe van jou program vrystel of as jou program se URL\'e verander.',
+      'es':
+          'Proporcione la URL de su aplicación web, la URL de la tienda de aplicaciones de Apple, la URL de la tienda de Google Play, la URL de la tienda de aplicaciones de Mac OS, la URL de la tienda de Windows y la URL de la tienda de Linux en los enlaces siguientes.\n\nAsegúrese de probar todos los enlaces de descarga en diferentes dispositivos y navegadores para garantizar que funcionen correctamente.\n\nTenga en cuenta que actualmente estamos trabajando para admitir las URL de Mac OS App Store, Windows Store y Linux Store, y estas plataformas aún no son totalmente compatibles.\n\nRecuerde mantener estos enlaces actualizados cada vez que publique una nueva versión de su aplicación o si las URL de su aplicación cambian.',
+      'fr':
+          'Veuillez fournir l\'URL de votre application Web, l\'URL de l\'App Store Apple, l\'URL du Google Play Store, l\'URL de l\'App Store Mac OS, l\'URL de l\'application Windows Store et l\'URL de la boutique Linux dans les liens ci-dessous.\n\nAssurez-vous de tester tous les liens de téléchargement sur différents appareils et navigateurs pour garantir qu\'ils fonctionnent correctement.\n\nVeuillez noter que nous travaillons actuellement sur la prise en charge des URL du Mac OS App Store, du Windows Store et du Linux Store, et que ces plates-formes ne sont pas encore entièrement prises en charge.\n\nN\'oubliez pas de maintenir ces liens à jour chaque fois que vous publiez une nouvelle version de votre application ou si les URL de votre application changent.',
+    },
+    'kmciylpw': {
+      'en': 'Home',
+      'af': 'Tuis',
+      'es': 'Hogar',
+      'fr': 'Maison',
+    },
+  },
+  // CreateTransactionPin
+  {
+    'd56dd3ik': {
+      'en': 'Transaction Pin',
+      'af': 'Sekuriteits kode',
+      'es': 'PIN Seguridad',
+      'fr': 'Code de securité',
+    },
+    'ntkqjh47': {
+      'en':
+          'Changing your 6-digit security PIN safeguards your account, and you must not share it with anyone.',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'b0if3t7l': {
+      'en': 'Forget your pin? ',
+      'af': 'Vergeet jou wagwoord?',
+      'es': '¿Olvidaste tu contraseña?',
+      'fr': 'Mot de passe oublié?',
+    },
+    'qlf3ed7n': {
+      'en': 'Reset it here',
+      'af': 'Stel dit hier terug',
+      'es': 'restablecerlo aquí',
+      'fr': 'Réinitialisez-le ici',
+    },
+    'm5qam720': {
+      'en': 'Current is required',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'hpzk4zil': {
+      'en': 'Please choose an option from the dropdown',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'fnzjzu7g': {
+      'en': 'Pin is required',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    't0yeszie': {
+      'en': 'Pin must be 6 digits',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'eferzaxo': {
+      'en': 'Please choose an option from the dropdown',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '3mhdctl6': {
+      'en': 'Confirm pin is required',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '6kfu1jki': {
+      'en': 'Confirm pin must be 6 digits',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'ftjf5k1n': {
+      'en': 'Please choose an option from the dropdown',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'pnre0hag': {
+      'en':
+          'Your 6-digit security PIN protects your account, and it is critical that you do not share it with anybody.',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'qumiljzf': {
+      'en': 'Pin is required',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '35pn9kmc': {
+      'en': 'Pin must be 6 digits',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    't9teiqys': {
+      'en': 'Pin must be 6 digits',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'tn9t3lm2': {
+      'en': 'Please choose an option from the dropdown',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'af1kw8lv': {
+      'en': 'Confirm pin is required',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'vmut8b3x': {
+      'en': 'Confirm pin must be 6 digits',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '8e4m1q12': {
+      'en': 'Confirm pin must be 6 digits',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'dh150l8n': {
+      'en': 'Please choose an option from the dropdown',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'n7cfhmfq': {
+      'en': 'Home',
+      'af': 'Tuis',
+      'es': 'Hogar',
+      'fr': 'Maison',
+    },
+  },
+  // ResetTransactionPin
+  {
+    'x0f70idr': {
+      'en': 'Confirm your email address',
+      'af': 'Bevestig U E-Posadres',
+      'es': 'Confirme su dirección de correo electrónico',
+      'fr': 'Confirmez votre adresse email',
+    },
+    '0dyylknh': {
+      'en':
+          'We will send a code to your registered email to confirm the change',
+      'af':
+          'Ons sal \'n kode na jou geregistreerde e-pos stuur om die verandering te bevestig',
+      'es':
+          'Le enviaremos un código a su correo electrónico registrado para confirmar el cambio.',
+      'fr':
+          'Nous enverrons un code à votre adresse e-mail enregistrée pour confirmer le changement',
+    },
+    '2xjgg7xg': {
+      'en': 'Resend code',
+      'af': 'Herstuur kode',
+      'es': 'Reenviar codigo',
+      'fr': 'Renvoyer le code',
+    },
+    '1r1foel8': {
+      'en': 'Home',
+      'af': 'Tuis',
+      'es': 'Hogar',
+      'fr': 'Maison',
+    },
+  },
+  // TransactionSecurity
+  {
+    'gcflvlws': {
+      'en': '  Transaction Security',
+      'af': 'Sekuriteit',
+      'es': 'Seguridad',
+      'fr': 'Sécurité',
+    },
+    'opzb46vt': {
+      'en': 'More',
+      'af': 'Meer',
+      'es': 'Más',
+      'fr': 'Plus',
     },
   },
   // OrderBarcodeDetail
@@ -7339,6 +7556,88 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': '',
     },
   },
+  // AnnonucementComposer
+  {
+    '1isga0p6': {
+      'en': 'Enable and Disable Announcement',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '2swh30pd': {
+      'en': '',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'fryg1j23': {
+      'en': 'Title',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'hkpws5i6': {
+      'en': '',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '4c5ujvx9': {
+      'en': 'Message',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '03scp9dp': {
+      'en': 'Responsive',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'v3a14poo': {
+      'en':
+          'Tap on the Mobile, Desktop, or Web icon below to designate the devices for your announcement. Customize your preferences by checking or unchecking accordingly.',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'vserxkxc': {
+      'en': 'Mobile',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'mcsxxiej': {
+      'en': 'Desktop',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'izq2kbg7': {
+      'en': 'Web',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '86bkg8fm': {
+      'en': 'Mobile',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'omyh38b1': {
+      'en': 'Desktop',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '1cjo6z32': {
+      'en': 'Web',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+  },
   // CreateAnnouncement
   {
     'eslhud5c': {
@@ -7351,29 +7650,29 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr':
           'Si vous avez des nouvelles récentes ou importantes à partager, affichez un message dans une barre en haut de votre application ou pop-up. Lorsqu\'elle est activée, la barre d\'annonces sera visible à la fois sur votre ordinateur de bureau et sur votre site Web mobile.',
     },
-    '6aq7b4wz': {
+    '9wn2gfv8': {
       'en': 'Title is required',
-      'af': 'Titel word vereis',
-      'es': 'Se requiere título',
-      'fr': 'Le titre est requis',
+      'af': '',
+      'es': '',
+      'fr': '',
     },
-    '819zi0e6': {
+    'rgwr1gb9': {
       'en': 'Please choose an option from the dropdown',
-      'af': 'Kies asseblief \'n opsie uit die aftreklys',
-      'es': 'Por favor, elija una opción del menú desplegable',
-      'fr': 'Veuillez choisir une option dans la liste déroulante',
+      'af': '',
+      'es': '',
+      'fr': '',
     },
-    '71in92fn': {
+    '2jgld7xt': {
       'en': 'Message is required',
-      'af': 'Boodskap word vereis',
-      'es': 'El mensaje es obligatorio',
-      'fr': 'Un message est requis',
+      'af': '',
+      'es': '',
+      'fr': '',
     },
-    '1jj3vq43': {
+    'u6aqm3a9': {
       'en': 'Please choose an option from the dropdown',
-      'af': 'Kies asseblief \'n opsie uit die aftreklys',
-      'es': 'Por favor, elija una opción del menú desplegable',
-      'fr': 'Veuillez choisir une option dans la liste déroulante',
+      'af': '',
+      'es': '',
+      'fr': '',
     },
   },
   // UpdateAnnouncement
@@ -7388,29 +7687,29 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr':
           'Si vous avez des nouvelles récentes ou importantes à partager, affichez un message dans une barre en haut de votre application ou pop-up. Lorsqu\'elle est activée, la barre d\'annonces sera visible à la fois sur votre ordinateur de bureau et sur votre site Web mobile.',
     },
-    'ux5acg8d': {
+    'wol3l7do': {
       'en': 'Title is required',
-      'af': 'Titel word vereis',
-      'es': 'Se requiere título',
-      'fr': 'Le titre est requis',
+      'af': '',
+      'es': '',
+      'fr': '',
     },
-    'o9j1g8zn': {
+    '22flid9q': {
       'en': 'Please choose an option from the dropdown',
-      'af': 'Kies asseblief \'n opsie uit die aftreklys',
-      'es': 'Por favor, elija una opción del menú desplegable',
-      'fr': 'Veuillez choisir une option dans la liste déroulante',
+      'af': '',
+      'es': '',
+      'fr': '',
     },
-    'ay2wap22': {
+    'kh5s3bms': {
       'en': 'Message is required',
-      'af': 'Boodskap word vereis',
-      'es': 'El mensaje es obligatorio',
-      'fr': 'Un message est requis',
+      'af': '',
+      'es': '',
+      'fr': '',
     },
-    'lt8gwkwk': {
+    '6vqtuwqq': {
       'en': 'Please choose an option from the dropdown',
-      'af': 'Kies asseblief \'n opsie uit die aftreklys',
-      'es': 'Por favor, elija una opción del menú desplegable',
-      'fr': 'Veuillez choisir une option dans la liste déroulante',
+      'af': '',
+      'es': '',
+      'fr': '',
     },
   },
   // BankDetailsComp
@@ -9111,13 +9410,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Información de la aplicación',
       'fr': 'Informations sur l\'application',
     },
-    '855ep1m2': {
+    'i7emfrfz': {
+      'en': 'Main Menu',
+      'af': 'Hoof spyskaart',
+      'es': 'Menú principal',
+      'fr': 'Menu principal',
+    },
+    '77tzwqqd': {
+      'en': 'Transaction Security',
+      'af': 'Sekuriteit',
+      'es': 'Seguridad',
+      'fr': 'Sécurité',
+    },
+    'w5plrowh': {
       'en': 'Administrator',
       'af': 'Administrateur',
       'es': 'Administrador',
       'fr': 'Administrateur',
     },
-    'm8vavksi': {
+    'e6bq5dsl': {
       'en': 'Content Manager',
       'af': 'Inhoudbestuurder',
       'es': 'Gestor de contenidos',
@@ -11122,6 +11433,111 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
       'fr': '',
     },
+    'gpsdwyvp': {
+      'en': 'Position',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'tnvdmsuz': {
+      'en': 'Where would you prefer to place your ads— at the top or bottom?',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'g6ac5kgv': {
+      'en':
+          'Choose the optimal placement for your ads and make a lasting impact on your audience. Decide whether you want to elevate your brand at the top or engage users seamlessly at the bottom. Your advertising strategy, your way.',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'r37vcjx4': {
+      'en': 'Bottom',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'fukg133x': {
+      'en': 'Top',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '2ziqwil0': {
+      'en': 'Bottom',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'a95pkh6u': {
+      'en': 'On which product pages would you like to feature your ads?',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '4az87jge': {
+      'en':
+          'Rest assured that your created ads will seamlessly and automatically be featured on the dashboard, providing prime visibility and engagement opportunities for your audience.',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'z29slf41': {
+      'en': 'Dashboard',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'w6a5l3c5': {
+      'en': 'Responsive',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'ty28ap0l': {
+      'en':
+          'Click the Mobile, Desktop, or Web icon below to select the devices for your ads. Check or uncheck to customize your preferences.',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'e4pagw61': {
+      'en': 'Mobile',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '28omgxai': {
+      'en': 'Desktop',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    '8h3ca7us': {
+      'en': 'Web',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'nu0oizmr': {
+      'en': 'Mobile',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'k5clvbln': {
+      'en': 'Desktop',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'dmqgz5ke': {
+      'en': 'Web',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
   },
   // ReadAds
   {
@@ -11151,6 +11567,24 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '4bym10y1': {
       'en': 'Closable: ',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'u9ok12dq': {
+      'en': 'Position: ',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'lvu0pvi7': {
+      'en': 'Selected Pages: ',
+      'af': '',
+      'es': '',
+      'fr': '',
+    },
+    'hy17j4vm': {
+      'en': 'Resposive: ',
       'af': '',
       'es': '',
       'fr': '',

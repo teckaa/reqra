@@ -1,7 +1,7 @@
 import '/application/backend/d_w_dashboard/global/d_w_header/d_w_header_widget.dart';
 import '/application/backend/d_w_dashboard/global/d_w_sidebar/d_w_sidebar_widget.dart';
-import '/application/backend/d_w_settings/admin/adverts/create_ads/create_ads_widget.dart';
-import '/application/backend/d_w_settings/admin/adverts/read_ads/read_ads_widget.dart';
+import '/application/backend/d_w_settings/admin/adverts/admin/components/create_ads/create_ads_widget.dart';
+import '/application/backend/d_w_settings/admin/adverts/admin/components/read_ads/read_ads_widget.dart';
 import '/application/components/buttons/primary_button/primary_button_widget.dart';
 import '/application/components/empty/empty_table/empty_table_widget.dart';
 import '/application/components/empty/no_access_error/no_access_error_widget.dart';

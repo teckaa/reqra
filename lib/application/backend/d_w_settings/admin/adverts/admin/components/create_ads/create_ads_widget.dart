@@ -11,8 +11,11 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_checkbox_group.dart';
+import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_count_controller.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
@@ -122,7 +125,7 @@ class _CreateAdsWidgetState extends State<CreateAdsWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -148,7 +151,7 @@ class _CreateAdsWidgetState extends State<CreateAdsWidget>
                         buttonBgColor: FlutterFlowTheme.of(context).primary,
                         buttonTextColor: FlutterFlowTheme.of(context).white,
                         buttonWidth: 100,
-                        buttonHeight: 45,
+                        buttonHeight: 35,
                         disableStatusPara: (_model.inputTextFieldAdsNameModel
                                         .textController.text ==
                                     null ||
@@ -180,12 +183,16 @@ class _CreateAdsWidgetState extends State<CreateAdsWidget>
                                   .textController
                                   .text),
                               adsIsClosable: _model.checkboxClosableValue,
+                              adsPosition: _model.radioButtonPositionValue,
                             ),
                             ...mapToFirestore(
                               {
                                 'ads_banner': getAdsFieldsListFirestoreData(
                                   _model.listInAds,
                                 ),
+                                'ads_page': _model.checkboxGroupPagesValues,
+                                'ads_responsive':
+                                    _model.choiceChipsResponsiveValues,
                               },
                             ),
                           });
@@ -1128,7 +1135,7 @@ class _CreateAdsWidgetState extends State<CreateAdsWidget>
                                               updateCallback: () =>
                                                   setState(() {}),
                                               child: PhotoGridCoverWidget(
-                                                photoWidth: 460,
+                                                photoWidth: 500,
                                                 photoHeight: 100,
                                                 photoPath: _model.getImagePath,
                                                 photoName: 'Upload image here',
@@ -1272,14 +1279,14 @@ class _CreateAdsWidgetState extends State<CreateAdsWidget>
                                     ),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 10.0, 0.0, 0.0),
+                                          10.0, 10.0, 10.0, 10.0),
                                       child: Builder(
                                         builder: (context) {
                                           final listOfDesign =
                                               _model.listInAds.toList();
                                           return Container(
                                             width: double.infinity,
-                                            height: 120.0,
+                                            height: 140.0,
                                             child: CarouselSlider.builder(
                                               itemCount: listOfDesign.length,
                                               itemBuilder: (context,
@@ -1297,16 +1304,45 @@ class _CreateAdsWidgetState extends State<CreateAdsWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
                                                                   0.0,
                                                                   0.0,
-                                                                  5.0),
-                                                      child: Text(
-                                                        '1 / ${(listOfDesignIndex + 1).toString()}',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
+                                                                  0.0,
+                                                                  10.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Text(
+                                                            '1 / ${(listOfDesignIndex + 1).toString()}',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
                                                                 .bodyMedium,
+                                                          ),
+                                                          IconWidget(
+                                                            key: Key(
+                                                                'Key55j_${listOfDesignIndex}_of_${listOfDesign.length}'),
+                                                            iconPara: Icon(
+                                                              FFIcons.ktrash,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
+                                                            ),
+                                                            iconActionPara:
+                                                                () async {
+                                                              logFirebaseEvent(
+                                                                  'CREATE_ADS_Container_55j2060f_CALLBACK');
+                                                              logFirebaseEvent(
+                                                                  'Icon_update_component_state');
+                                                              setState(() {
+                                                                _model.removeFromListInAds(
+                                                                    listOfDesignItem);
+                                                              });
+                                                            },
+                                                          ),
+                                                        ],
                                                       ),
                                                     ),
                                                     if (_model.typeOfAds ==
@@ -1673,7 +1709,7 @@ class _CreateAdsWidgetState extends State<CreateAdsWidget>
                             if ((_model.textFieldAdsTextController.text !=
                                         null &&
                                     _model.textFieldAdsTextController.text !=
-                                        '') &&
+                                        '') ||
                                 (_model.getImagePath != null &&
                                     _model.getImagePath != ''))
                               Column(
@@ -1754,6 +1790,353 @@ class _CreateAdsWidgetState extends State<CreateAdsWidget>
                                   actionPara: () async {},
                                 ),
                               ),
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Divider(
+                                  thickness: 1.0,
+                                  color: FlutterFlowTheme.of(context).accent4,
+                                ),
+                                Text(
+                                  FFLocalizations.of(context).getText(
+                                    'gpsdwyvp' /* Position */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .labelMediumFamily,
+                                        fontWeight: FontWeight.bold,
+                                        decoration: TextDecoration.underline,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily),
+                                      ),
+                                ),
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'tnvdmsuz' /* Where would you prefer to plac... */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
+                                                fontWeight: FontWeight.bold,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily),
+                                              ),
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'g6ac5kgv' /* Choose the optimal placement f... */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall,
+                                        ),
+                                      ].divide(SizedBox(height: 10.0)),
+                                    ),
+                                    FlutterFlowRadioButton(
+                                      options: [
+                                        FFLocalizations.of(context).getText(
+                                          'fukg133x' /* Top */,
+                                        ),
+                                        FFLocalizations.of(context).getText(
+                                          '2ziqwil0' /* Bottom */,
+                                        )
+                                      ].toList(),
+                                      onChanged: (val) => setState(() {}),
+                                      controller: _model
+                                              .radioButtonPositionValueController ??=
+                                          FormFieldController<String>(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                        'r37vcjx4' /* Bottom */,
+                                      )),
+                                      optionHeight: 32.0,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium,
+                                      selectedTextStyle:
+                                          FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                      buttonPosition: RadioButtonPosition.left,
+                                      direction: Axis.vertical,
+                                      radioButtonColor:
+                                          FlutterFlowTheme.of(context).primary,
+                                      inactiveRadioButtonColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                      toggleable: false,
+                                      horizontalAlignment: WrapAlignment.start,
+                                      verticalAlignment:
+                                          WrapCrossAlignment.start,
+                                    ),
+                                  ].divide(SizedBox(height: 15.0)),
+                                ),
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'a95pkh6u' /* On which product pages would y... */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
+                                                fontWeight: FontWeight.bold,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily),
+                                              ),
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            '4az87jge' /* Rest assured that your created... */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall,
+                                        ),
+                                      ].divide(SizedBox(height: 10.0)),
+                                    ),
+                                    StreamBuilder<
+                                        List<BillpaymentsServicesRecord>>(
+                                      stream: queryBillpaymentsServicesRecord(
+                                        queryBuilder:
+                                            (billpaymentsServicesRecord) =>
+                                                billpaymentsServicesRecord
+                                                    .orderBy('uuid'),
+                                      ),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: LinearProgressIndicator(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                            ),
+                                          );
+                                        }
+                                        List<BillpaymentsServicesRecord>
+                                            checkboxGroupPagesBillpaymentsServicesRecordList =
+                                            snapshot.data!;
+                                        return FlutterFlowCheckboxGroup(
+                                          options:
+                                              checkboxGroupPagesBillpaymentsServicesRecordList
+                                                  .map((e) => e.serviceName)
+                                                  .toList(),
+                                          onChanged: (val) => setState(() =>
+                                              _model.checkboxGroupPagesValues =
+                                                  val),
+                                          controller: _model
+                                                  .checkboxGroupPagesValueController ??=
+                                              FormFieldController<List<String>>(
+                                            [],
+                                          ),
+                                          activeColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                          checkColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .white,
+                                          checkboxBorderColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryText,
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium,
+                                          checkboxBorderRadius:
+                                              BorderRadius.circular(4.0),
+                                          initialized:
+                                              _model.checkboxGroupPagesValues !=
+                                                  null,
+                                        );
+                                      },
+                                    ),
+                                  ].divide(SizedBox(height: 15.0)),
+                                ),
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'w6a5l3c5' /* Responsive */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
+                                                fontWeight: FontWeight.bold,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily),
+                                              ),
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'ty28ap0l' /* Click the Mobile, Desktop, or ... */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall,
+                                        ),
+                                        FlutterFlowChoiceChips(
+                                          options: [
+                                            ChipData(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'e4pagw61' /* Mobile */,
+                                                ),
+                                                FFIcons.kmobile),
+                                            ChipData(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '28omgxai' /* Desktop */,
+                                                ),
+                                                FFIcons.kmonitor),
+                                            ChipData(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '8h3ca7us' /* Web */,
+                                                ),
+                                                FFIcons.kglobal)
+                                          ],
+                                          onChanged: (val) => setState(() =>
+                                              _model.choiceChipsResponsiveValues =
+                                                  val),
+                                          selectedChipStyle: ChipStyle(
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmall
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodySmallFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .white,
+                                                      useGoogleFonts: GoogleFonts
+                                                              .asMap()
+                                                          .containsKey(
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmallFamily),
+                                                    ),
+                                            iconColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .white,
+                                            iconSize: 18.0,
+                                            elevation: 4.0,
+                                            borderRadius:
+                                                BorderRadius.circular(16.0),
+                                          ),
+                                          unselectedChipStyle: ChipStyle(
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .lineColor,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .black,
+                                                      useGoogleFonts: GoogleFonts
+                                                              .asMap()
+                                                          .containsKey(
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily),
+                                                    ),
+                                            iconColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .black,
+                                            iconSize: 18.0,
+                                            elevation: 0.0,
+                                            borderRadius:
+                                                BorderRadius.circular(16.0),
+                                          ),
+                                          chipSpacing: 12.0,
+                                          rowSpacing: 12.0,
+                                          multiselect: true,
+                                          initialized: _model
+                                                  .choiceChipsResponsiveValues !=
+                                              null,
+                                          alignment: WrapAlignment.start,
+                                          controller: _model
+                                                  .choiceChipsResponsiveValueController ??=
+                                              FormFieldController<List<String>>(
+                                            [
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'nu0oizmr' /* Mobile */,
+                                              ),
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'k5clvbln' /* Desktop */,
+                                              ),
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'dmqgz5ke' /* Web */,
+                                              )
+                                            ],
+                                          ),
+                                          wrapped: true,
+                                        ),
+                                      ].divide(SizedBox(height: 10.0)),
+                                    ),
+                                  ].divide(SizedBox(height: 15.0)),
+                                ),
+                              ].divide(SizedBox(height: 25.0)),
+                            ),
                           ].divide(SizedBox(height: 15.0)),
                         ),
                       ].divide(SizedBox(height: 25.0)),

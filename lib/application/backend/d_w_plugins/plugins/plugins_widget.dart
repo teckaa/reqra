@@ -1,7 +1,6 @@
 import '/application/backend/d_w_dashboard/global/d_w_header/d_w_header_widget.dart';
 import '/application/backend/d_w_dashboard/global/d_w_sidebar/d_w_sidebar_widget.dart';
 import '/application/backend/d_w_plugins/create_plugin/create_plugin_widget.dart';
-import '/application/components/buttons/primary_button/primary_button_widget.dart';
 import '/application/components/buttons/primary_rounded_button/primary_rounded_button_widget.dart';
 import '/application/components/empty/empty_table/empty_table_widget.dart';
 import '/application/components/empty/no_access_error/no_access_error_widget.dart';
@@ -222,62 +221,6 @@ class _PluginsWidgetState extends State<PluginsWidget> {
                                                         ),
                                                       ),
                                                     ),
-                                                    wrapWithModel(
-                                                      model: _model
-                                                          .primaryButtonModel,
-                                                      updateCallback: () =>
-                                                          setState(() {}),
-                                                      child:
-                                                          PrimaryButtonWidget(
-                                                        buttonText: 'Add new',
-                                                        disableStatusPara:
-                                                            false,
-                                                        buttonAction: () async {
-                                                          logFirebaseEvent(
-                                                              'PLUGINS_PAGE_Container_95eeo93t_CALLBACK');
-                                                          logFirebaseEvent(
-                                                              'PrimaryButton_bottom_sheet');
-                                                          await showModalBottomSheet(
-                                                            isScrollControlled:
-                                                                true,
-                                                            backgroundColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            barrierColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .overlay,
-                                                            useSafeArea: true,
-                                                            context: context,
-                                                            builder: (context) {
-                                                              return WebViewAware(
-                                                                  child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      CreatePluginWidget(),
-                                                                ),
-                                                              ));
-                                                            },
-                                                          ).then((value) =>
-                                                              safeSetState(
-                                                                  () {}));
-                                                        },
-                                                      ),
-                                                    ),
                                                   ].divide(
                                                       SizedBox(width: 10.0)),
                                                 ),
@@ -339,6 +282,7 @@ class _PluginsWidgetState extends State<PluginsWidget> {
                                                         .orderBy('created_at'),
                                                   ),
                                                   padding: EdgeInsets.zero,
+                                                  primary: false,
                                                   shrinkWrap: true,
                                                   reverse: false,
                                                   scrollDirection:
@@ -359,7 +303,7 @@ class _PluginsWidgetState extends State<PluginsWidget> {
                                                     noItemsFoundIndicatorBuilder:
                                                         (_) => EmptyTableWidget(
                                                       titlePara:
-                                                          'No Plugins yet',
+                                                          'No Plugins Yet',
                                                       descPara:
                                                           'The plugins are currently empty; to begin, click the button below. ',
                                                       buttonTextPara: 'Add New',

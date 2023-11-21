@@ -77,7 +77,7 @@ class _UpdateAnnouncementWidgetState extends State<UpdateAnnouncementWidget>
     return Align(
       alignment: AlignmentDirectional(0.00, 0.00),
       child: Container(
-        width: 400.0,
+        width: 600.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
           boxShadow: [
@@ -106,60 +106,118 @@ class _UpdateAnnouncementWidgetState extends State<UpdateAnnouncementWidget>
                 },
               ),
             ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Text(
-                    FFLocalizations.of(context).getText(
-                      'rcrrf0jm' /* If you have recent or signific... */,
+            StreamBuilder<DwAnnouncementsRecord>(
+              stream: DwAnnouncementsRecord.getDocument(widget.recordRef!),
+              builder: (context, snapshot) {
+                // Customize what your widget looks like when it's loading.
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: LinearProgressIndicator(
+                      color: FlutterFlowTheme.of(context).primary,
                     ),
-                    style: FlutterFlowTheme.of(context).bodySmall,
-                  ),
-                  Form(
-                    key: _model.formKey,
-                    autovalidateMode: AutovalidateMode.disabled,
-                    child: wrapWithModel(
-                      model: _model.annonucementComposerModel,
-                      updateCallback: () => setState(() {}),
-                      child: AnnonucementComposerWidget(
-                        pagePara: 'Create',
-                        saveActionPara: () async {},
+                  );
+                }
+                final columnDwAnnouncementsRecord = snapshot.data!;
+                return Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              'rcrrf0jm' /* If you have recent or signific... */,
+                            ),
+                            style: FlutterFlowTheme.of(context).bodySmall,
+                          ),
+                          Form(
+                            key: _model.formKey,
+                            autovalidateMode: AutovalidateMode.disabled,
+                            child: wrapWithModel(
+                              model: _model.annonucementComposerModel,
+                              updateCallback: () => setState(() {}),
+                              updateOnChange: true,
+                              child: AnnonucementComposerWidget(
+                                pagePara: 'Create',
+                                announcementTitle:
+                                    columnDwAnnouncementsRecord.postTitle,
+                                announcementMessage:
+                                    columnDwAnnouncementsRecord.postDesc,
+                                announcementBgColor:
+                                    columnDwAnnouncementsRecord.postBgColor,
+                                announcementStatus:
+                                    columnDwAnnouncementsRecord.postStatus,
+                                announcementResponsive:
+                                    columnDwAnnouncementsRecord.postResponsive,
+                                saveActionPara: () async {},
+                              ),
+                            ),
+                          ),
+                        ]
+                            .divide(SizedBox(height: 20.0))
+                            .around(SizedBox(height: 20.0)),
                       ),
                     ),
-                  ),
-                ].divide(SizedBox(height: 20.0)),
-              ),
-            ),
-            wrapWithModel(
-              model: _model.modalFooterRowModel,
-              updateCallback: () => setState(() {}),
-              child: ModalFooterRowWidget(
-                cancelTextPara: 'Cancel',
-                proceedTextPara: 'Save',
-                disableProceedBtnPara: false,
-                proceedActionPara: () async {
-                  logFirebaseEvent('UPDATE_ANNOUNCEMENT_Container_cuurpale_C');
-                  logFirebaseEvent('ModalFooterRow_validate_form');
-                  if (_model.formKey.currentState == null ||
-                      !_model.formKey.currentState!.validate()) {
-                    return;
-                  }
-                  logFirebaseEvent('ModalFooterRow_backend_call');
+                    wrapWithModel(
+                      model: _model.modalFooterRowModel,
+                      updateCallback: () => setState(() {}),
+                      child: ModalFooterRowWidget(
+                        cancelTextPara: 'Cancel',
+                        proceedTextPara: 'Save',
+                        disableProceedBtnPara: (_model.annonucementComposerModel
+                                        .textFieldTitleController.text ==
+                                    null ||
+                                _model.annonucementComposerModel
+                                        .textFieldTitleController.text ==
+                                    '') &&
+                            (_model.annonucementComposerModel
+                                        .textFieldMessageController.text ==
+                                    null ||
+                                _model.annonucementComposerModel
+                                        .textFieldMessageController.text ==
+                                    ''),
+                        disableProceedBtnColorPara:
+                            FlutterFlowTheme.of(context).disableColor,
+                        proceedActionPara: () async {
+                          logFirebaseEvent(
+                              'UPDATE_ANNOUNCEMENT_Container_cuurpale_C');
+                          logFirebaseEvent('ModalFooterRow_validate_form');
+                          if (_model.formKey.currentState == null ||
+                              !_model.formKey.currentState!.validate()) {
+                            return;
+                          }
+                          logFirebaseEvent('ModalFooterRow_backend_call');
 
-                  await widget.recordRef!
-                      .update(createDwAnnouncementsRecordData(
-                    postTitle: _model.annonucementComposerModel
-                        .inputTextFieldTitleModel.textController.text,
-                    postDesc: _model.annonucementComposerModel
-                        .inputTextAreaDescModel.textController.text,
-                  ));
-                  logFirebaseEvent('ModalFooterRow_navigate_to');
-
-                  context.pushNamed('ListOfAnnonucements');
-                },
-              ),
+                          await widget.recordRef!.update({
+                            ...createDwAnnouncementsRecordData(
+                              postTitle: _model.annonucementComposerModel
+                                  .textFieldTitleController.text,
+                              postDesc: _model.annonucementComposerModel
+                                  .textFieldMessageController.text,
+                              postStatus: _model.annonucementComposerModel
+                                  .switchAnnouncementStatusValue,
+                              postBgColor:
+                                  _model.annonucementComposerModel.colorPicked,
+                            ),
+                            ...mapToFirestore(
+                              {
+                                'post_responsive': _model
+                                    .annonucementComposerModel
+                                    .choiceChipsResponsiveValues,
+                              },
+                            ),
+                          });
+                          logFirebaseEvent('ModalFooterRow_bottom_sheet');
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ),
+                  ],
+                );
+              },
             ),
           ].divide(SizedBox(height: 10.0)),
         ),

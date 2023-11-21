@@ -97,6 +97,8 @@ class _ShimmerListOfListsWidgetState extends State<ShimmerListOfListsWidget>
           final listNumbers = functions.listOfNumbers('5').toList();
           return ListView.separated(
             padding: EdgeInsets.zero,
+            primary: false,
+            shrinkWrap: true,
             scrollDirection: Axis.vertical,
             itemCount: listNumbers.length,
             separatorBuilder: (_, __) => SizedBox(height: 25.0),

@@ -72,7 +72,7 @@ class _CreateAnnouncementWidgetState extends State<CreateAnnouncementWidget>
     return Align(
       alignment: AlignmentDirectional(0.00, 0.00),
       child: Container(
-        width: 400.0,
+        width: 600.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
           boxShadow: [
@@ -93,7 +93,7 @@ class _CreateAnnouncementWidgetState extends State<CreateAnnouncementWidget>
               model: _model.modalHeaderModel,
               updateCallback: () => setState(() {}),
               child: ModalHeaderWidget(
-                headerTitlePara: 'Add new',
+                headerTitlePara: 'Add New',
                 headerActionPara: () async {
                   logFirebaseEvent('CREATE_ANNOUNCEMENT_Container_cbw3bz7e_C');
                   logFirebaseEvent('ModalHeader_bottom_sheet');
@@ -120,11 +120,12 @@ class _CreateAnnouncementWidgetState extends State<CreateAnnouncementWidget>
                       updateCallback: () => setState(() {}),
                       child: AnnonucementComposerWidget(
                         pagePara: 'Create',
+                        announcementStatus: false,
                         saveActionPara: () async {},
                       ),
                     ),
                   ),
-                ].divide(SizedBox(height: 20.0)),
+                ].divide(SizedBox(height: 20.0)).around(SizedBox(height: 20.0)),
               ),
             ),
             wrapWithModel(
@@ -133,6 +134,20 @@ class _CreateAnnouncementWidgetState extends State<CreateAnnouncementWidget>
               child: ModalFooterRowWidget(
                 cancelTextPara: 'Cancel',
                 proceedTextPara: 'Save',
+                disableProceedBtnPara: (_model.annonucementComposerModel
+                                .textFieldTitleController.text ==
+                            null ||
+                        _model.annonucementComposerModel
+                                .textFieldTitleController.text ==
+                            '') &&
+                    (_model.annonucementComposerModel.textFieldMessageController
+                                .text ==
+                            null ||
+                        _model.annonucementComposerModel
+                                .textFieldMessageController.text ==
+                            ''),
+                disableProceedBtnColorPara:
+                    FlutterFlowTheme.of(context).disableColor,
                 proceedActionPara: () async {
                   logFirebaseEvent('CREATE_ANNOUNCEMENT_Container_3z01cwm5_C');
                   logFirebaseEvent('ModalFooterRow_validate_form');
@@ -142,19 +157,27 @@ class _CreateAnnouncementWidgetState extends State<CreateAnnouncementWidget>
                   }
                   logFirebaseEvent('ModalFooterRow_backend_call');
 
-                  await DwAnnouncementsRecord.collection
-                      .doc()
-                      .set(createDwAnnouncementsRecordData(
-                        postTitle: _model.annonucementComposerModel
-                            .inputTextFieldTitleModel.textController.text,
-                        postDesc: _model.annonucementComposerModel
-                            .inputTextAreaDescModel.textController.text,
-                        userRef: currentUserReference,
-                        createdAt: getCurrentTimestamp,
-                      ));
-                  logFirebaseEvent('ModalFooterRow_navigate_to');
-
-                  context.pushNamed('ListOfAnnonucements');
+                  await DwAnnouncementsRecord.collection.doc().set({
+                    ...createDwAnnouncementsRecordData(
+                      createdAt: getCurrentTimestamp,
+                      userRef: currentUserReference,
+                      postTitle: _model.annonucementComposerModel
+                          .textFieldTitleController.text,
+                      postDesc: _model.annonucementComposerModel
+                          .textFieldMessageController.text,
+                      postStatus: _model.annonucementComposerModel
+                          .switchAnnouncementStatusValue,
+                      postBgColor: _model.annonucementComposerModel.colorPicked,
+                    ),
+                    ...mapToFirestore(
+                      {
+                        'post_responsive': _model.annonucementComposerModel
+                            .choiceChipsResponsiveValues,
+                      },
+                    ),
+                  });
+                  logFirebaseEvent('ModalFooterRow_bottom_sheet');
+                  Navigator.pop(context);
                 },
               ),
             ),

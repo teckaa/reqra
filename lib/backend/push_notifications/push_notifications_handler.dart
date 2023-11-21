@@ -250,7 +250,7 @@ final parametersBuilderMap =
   'CreateEletricityBill': ParameterData.none(),
   'HelpCenter': ParameterData.none(),
   'Pincode': ParameterData.none(),
-  'Biometric': ParameterData.none(),
+  'LoginBiometric': ParameterData.none(),
   'DeleteAccount': ParameterData.none(),
   'ResetSecurityPin': ParameterData.none(),
   'ListOfEmailTemplates': ParameterData.none(),
@@ -290,6 +290,11 @@ final parametersBuilderMap =
   'ManageRecipeints': ParameterData.none(),
   'SetupApplication2': ParameterData.none(),
   'ManageAds': ParameterData.none(),
+  'TransactionBiometric': ParameterData.none(),
+  'ManageSecurity': ParameterData.none(),
+  'CreateTransactionPin': ParameterData.none(),
+  'ResetTransactionPin': ParameterData.none(),
+  'TransactionSecurity': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

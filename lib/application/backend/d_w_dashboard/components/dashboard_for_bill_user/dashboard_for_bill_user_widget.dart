@@ -1,13 +1,10 @@
 import '/application/backend/d_w_plugins/bill_payments/components/list_of_bill_order_comp/list_of_bill_order_comp_widget.dart';
+import '/application/backend/d_w_settings/admin/adverts/users/list_of_ads/list_of_ads_widget.dart';
 import '/application/backend/d_w_users/user/components/account_balance/account_balance_widget.dart';
 import '/application/components/buttons/primary_button/primary_button_widget.dart';
-import '/application/components/icons/icon/icon_widget.dart';
 import '/application/components/layouts/icon_square_box/icon_square_box_widget.dart';
 import '/application/components/layouts/photo_grid_cover/photo_grid_cover_widget.dart';
-import '/application/components/shimmers/shimmer_card2/shimmer_card2_widget.dart';
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
-import '/components/ads_carousel_comp_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -431,75 +428,10 @@ class _DashboardForBillUserWidgetState
                           ),
                         ].divide(SizedBox(height: 10.0)),
                       ),
-                      StreamBuilder<List<DwAppAdsRecord>>(
-                        stream: queryDwAppAdsRecord(
-                          queryBuilder: (dwAppAdsRecord) => dwAppAdsRecord
-                              .where(
-                                'ads_status',
-                                isEqualTo: true,
-                              )
-                              .orderBy('created_at', descending: true),
-                        ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return ShimmerCard2Widget(
-                              itemNo: 2,
-                              itemSpacing: 2,
-                              itemHeight: 100,
-                            );
-                          }
-                          List<DwAppAdsRecord> listViewDwAppAdsRecordList =
-                              snapshot.data!;
-                          return ListView.separated(
-                            padding: EdgeInsets.zero,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemCount: listViewDwAppAdsRecordList.length,
-                            separatorBuilder: (_, __) => SizedBox(height: 20.0),
-                            itemBuilder: (context, listViewIndex) {
-                              final listViewDwAppAdsRecord =
-                                  listViewDwAppAdsRecordList[listViewIndex];
-                              return Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Stack(
-                                    children: [
-                                      AdsCarouselCompWidget(
-                                        key: Key(
-                                            'Keyuhw_${listViewIndex}_of_${listViewDwAppAdsRecordList.length}'),
-                                        recordRef:
-                                            listViewDwAppAdsRecord.reference,
-                                      ),
-                                      if (listViewDwAppAdsRecord
-                                              .adsIsClosable ==
-                                          true)
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(1.00, -1.00),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 5.0, 5.0, 0.0),
-                                            child: IconWidget(
-                                              key: Key(
-                                                  'Key6gh_${listViewIndex}_of_${listViewDwAppAdsRecordList.length}'),
-                                              iconPara: Icon(
-                                                Icons.close_outlined,
-                                                color: Color(0x6BFF5963),
-                                                size: 24.0,
-                                              ),
-                                              iconActionPara: () async {},
-                                            ),
-                                          ),
-                                        ),
-                                    ],
-                                  ),
-                                ],
-                              );
-                            },
-                          );
-                        },
+                      wrapWithModel(
+                        model: _model.listOfAdsModel,
+                        updateCallback: () => setState(() {}),
+                        child: ListOfAdsWidget(),
                       ),
                     ].divide(SizedBox(height: 20.0)),
                   ),

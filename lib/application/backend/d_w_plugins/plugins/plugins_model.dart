@@ -1,7 +1,6 @@
 import '/application/backend/d_w_dashboard/global/d_w_header/d_w_header_widget.dart';
 import '/application/backend/d_w_dashboard/global/d_w_sidebar/d_w_sidebar_widget.dart';
 import '/application/backend/d_w_plugins/create_plugin/create_plugin_widget.dart';
-import '/application/components/buttons/primary_button/primary_button_widget.dart';
 import '/application/components/buttons/primary_rounded_button/primary_rounded_button_widget.dart';
 import '/application/components/empty/empty_table/empty_table_widget.dart';
 import '/application/components/empty/no_access_error/no_access_error_widget.dart';
@@ -35,8 +34,6 @@ class PluginsModel extends FlutterFlowModel<PluginsWidget> {
   late DWHeaderModel dWHeaderModel;
   // Model for SearchTextField component.
   late SearchTextFieldModel searchTextFieldModel;
-  // Model for PrimaryButton component.
-  late PrimaryButtonModel primaryButtonModel;
   // State field(s) for ListView widget.
 
   PagingController<DocumentSnapshot?, DwPluginsRecord>?
@@ -53,7 +50,6 @@ class PluginsModel extends FlutterFlowModel<PluginsWidget> {
     dWSidebarModel = createModel(context, () => DWSidebarModel());
     dWHeaderModel = createModel(context, () => DWHeaderModel());
     searchTextFieldModel = createModel(context, () => SearchTextFieldModel());
-    primaryButtonModel = createModel(context, () => PrimaryButtonModel());
     noAccessErrorModel = createModel(context, () => NoAccessErrorModel());
   }
 
@@ -62,7 +58,6 @@ class PluginsModel extends FlutterFlowModel<PluginsWidget> {
     dWSidebarModel.dispose();
     dWHeaderModel.dispose();
     searchTextFieldModel.dispose();
-    primaryButtonModel.dispose();
     listViewStreamSubscriptions.forEach((s) => s?.cancel());
     listViewPagingController?.dispose();
 

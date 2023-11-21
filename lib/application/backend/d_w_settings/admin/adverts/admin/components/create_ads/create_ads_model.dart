@@ -11,8 +11,11 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_checkbox_group.dart';
+import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_count_controller.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
@@ -99,6 +102,14 @@ class CreateAdsModel extends FlutterFlowModel<CreateAdsWidget> {
   late InputTextFieldModel inputTextFieldInternalModel;
   // Model for UrlTextField-ExternalLink.
   late UrlTextFieldModel urlTextFieldExternalLinkModel;
+  // State field(s) for RadioButton-Position widget.
+  FormFieldController<String>? radioButtonPositionValueController;
+  // State field(s) for CheckboxGroup-Pages widget.
+  List<String>? checkboxGroupPagesValues;
+  FormFieldController<List<String>>? checkboxGroupPagesValueController;
+  // State field(s) for ChoiceChips-Responsive widget.
+  List<String>? choiceChipsResponsiveValues;
+  FormFieldController<List<String>>? choiceChipsResponsiveValueController;
 
   /// Initialization and disposal methods.
 
@@ -149,4 +160,7 @@ class CreateAdsModel extends FlutterFlowModel<CreateAdsWidget> {
   /// Action blocks are added here.
 
   /// Additional helper methods are added here.
+
+  String? get radioButtonPositionValue =>
+      radioButtonPositionValueController?.value;
 }

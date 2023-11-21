@@ -6,6 +6,7 @@ import '/application/components/buttons/primary_button_loading/primary_button_lo
 import '/application/components/buttons/primary_rounded_button/primary_rounded_button_widget.dart';
 import '/application/components/empty/no_access_error/no_access_error_widget.dart';
 import '/application/components/forms/input_text_field/input_text_field_widget.dart';
+import '/application/components/forms/url_text_field/url_text_field_widget.dart';
 import '/application/components/shimmers/shimmer_card/shimmer_card_widget.dart';
 import '/application/components/shimmers/shimmer_card2/shimmer_card2_widget.dart';
 import '/application/components/shimmers/shimmer_circle_button/shimmer_circle_button_widget.dart';
@@ -65,6 +66,8 @@ class BillSettingsModel extends FlutterFlowModel<BillSettingsWidget> {
   // State field(s) for DropDown-Country widget.
   String? dropDownCountryValue;
   FormFieldController<String>? dropDownCountryValueController;
+  // Model for UrlTextField component.
+  late UrlTextFieldModel urlTextFieldModel;
   // Model for PrimaryButtonLoading component.
   late PrimaryButtonLoadingModel primaryButtonLoadingModel;
   // Model for PrimaryRoundedButton component.
@@ -83,6 +86,7 @@ class BillSettingsModel extends FlutterFlowModel<BillSettingsWidget> {
         createModel(context, () => InputTextFieldModel());
     inputTextFieldTestProviderApiModel =
         createModel(context, () => InputTextFieldModel());
+    urlTextFieldModel = createModel(context, () => UrlTextFieldModel());
     primaryButtonLoadingModel =
         createModel(context, () => PrimaryButtonLoadingModel());
     primaryRoundedButtonModel1 =
@@ -97,6 +101,7 @@ class BillSettingsModel extends FlutterFlowModel<BillSettingsWidget> {
     tabBarController?.dispose();
     inputTextFieldPublicProviderApiModel.dispose();
     inputTextFieldTestProviderApiModel.dispose();
+    urlTextFieldModel.dispose();
     primaryButtonLoadingModel.dispose();
     primaryRoundedButtonModel1.dispose();
     noAccessErrorModel.dispose();

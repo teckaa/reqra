@@ -460,6 +460,13 @@ class _ConfirmTransactionWidgetState extends State<ConfirmTransactionWidget>
                             final firestoreBatch =
                                 FirebaseFirestore.instance.batch();
                             try {
+                              // Action 2 - Get app details
+                              logFirebaseEvent(
+                                  'PrimaryButtonLoading_Action2-Getappdetai');
+                              _model.getAppInfo = await queryDwAppRecordOnce(
+                                singleRecord: true,
+                              ).then((s) => s.firstOrNull);
+                              _shouldSetState = true;
                               // Action 1 - Get Bill Key
                               logFirebaseEvent(
                                   'PrimaryButtonLoading_Action1-GetBillKey');
@@ -482,13 +489,6 @@ class _ConfirmTransactionWidgetState extends State<ConfirmTransactionWidget>
                                           currentUserDocument?.transactionPin,
                                           '') ==
                                       _model.pinCodeController!.text)) {
-                                // Action 2 - Get app details
-                                logFirebaseEvent(
-                                    'PrimaryButtonLoading_Action2-Getappdetai');
-                                _model.getAppInfo = await queryDwAppRecordOnce(
-                                  singleRecord: true,
-                                ).then((s) => s.firstOrNull);
-                                _shouldSetState = true;
                                 // Action 3 - Validate number
                                 logFirebaseEvent(
                                     'PrimaryButtonLoading_Action3-Validatenum');

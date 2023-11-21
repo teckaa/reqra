@@ -78,6 +78,7 @@ class _ModalFooterRowWidgetState extends State<ModalFooterRowWidget> {
                 wrapWithModel(
                   model: _model.primaryButtonModel,
                   updateCallback: () => setState(() {}),
+                  updateOnChange: true,
                   child: PrimaryButtonWidget(
                     buttonText: valueOrDefault<String>(
                       widget.cancelTextPara,

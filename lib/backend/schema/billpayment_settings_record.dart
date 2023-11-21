@@ -92,6 +92,23 @@ class BillpaymentSettingsRecord extends FirestoreRecord {
   String get pluginProviderTestApiKey => _pluginProviderTestApiKey ?? '';
   bool hasPluginProviderTestApiKey() => _pluginProviderTestApiKey != null;
 
+  // "provider_payment_redirect_url" field.
+  String? _providerPaymentRedirectUrl;
+  String get providerPaymentRedirectUrl => _providerPaymentRedirectUrl ?? '';
+  bool hasProviderPaymentRedirectUrl() => _providerPaymentRedirectUrl != null;
+
+  // "security_transaction_pin" field.
+  bool? _securityTransactionPin;
+  bool get securityTransactionPin => _securityTransactionPin ?? false;
+  bool hasSecurityTransactionPin() => _securityTransactionPin != null;
+
+  // "security_transaction_pin_message" field.
+  String? _securityTransactionPinMessage;
+  String get securityTransactionPinMessage =>
+      _securityTransactionPinMessage ?? '';
+  bool hasSecurityTransactionPinMessage() =>
+      _securityTransactionPinMessage != null;
+
   void _initializeFields() {
     _createdAt = snapshotData['created_at'] as DateTime?;
     _userRef = snapshotData['user_ref'] as DocumentReference?;
@@ -113,6 +130,11 @@ class BillpaymentSettingsRecord extends FirestoreRecord {
     _pluginMaxTopup = castToType<int>(snapshotData['plugin_max_topup']);
     _pluginProviderTestApiKey =
         snapshotData['plugin_provider_test_api_key'] as String?;
+    _providerPaymentRedirectUrl =
+        snapshotData['provider_payment_redirect_url'] as String?;
+    _securityTransactionPin = snapshotData['security_transaction_pin'] as bool?;
+    _securityTransactionPinMessage =
+        snapshotData['security_transaction_pin_message'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -166,6 +188,9 @@ Map<String, dynamic> createBillpaymentSettingsRecordData({
   int? pluginMinTopup,
   int? pluginMaxTopup,
   String? pluginProviderTestApiKey,
+  String? providerPaymentRedirectUrl,
+  bool? securityTransactionPin,
+  String? securityTransactionPinMessage,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -184,6 +209,9 @@ Map<String, dynamic> createBillpaymentSettingsRecordData({
       'plugin_min_topup': pluginMinTopup,
       'plugin_max_topup': pluginMaxTopup,
       'plugin_provider_test_api_key': pluginProviderTestApiKey,
+      'provider_payment_redirect_url': providerPaymentRedirectUrl,
+      'security_transaction_pin': securityTransactionPin,
+      'security_transaction_pin_message': securityTransactionPinMessage,
     }.withoutNulls,
   );
 
@@ -210,7 +238,10 @@ class BillpaymentSettingsRecordDocumentEquality
         e1?.pluginProviderApiStatus == e2?.pluginProviderApiStatus &&
         e1?.pluginMinTopup == e2?.pluginMinTopup &&
         e1?.pluginMaxTopup == e2?.pluginMaxTopup &&
-        e1?.pluginProviderTestApiKey == e2?.pluginProviderTestApiKey;
+        e1?.pluginProviderTestApiKey == e2?.pluginProviderTestApiKey &&
+        e1?.providerPaymentRedirectUrl == e2?.providerPaymentRedirectUrl &&
+        e1?.securityTransactionPin == e2?.securityTransactionPin &&
+        e1?.securityTransactionPinMessage == e2?.securityTransactionPinMessage;
   }
 
   @override
@@ -229,7 +260,10 @@ class BillpaymentSettingsRecordDocumentEquality
         e?.pluginProviderApiStatus,
         e?.pluginMinTopup,
         e?.pluginMaxTopup,
-        e?.pluginProviderTestApiKey
+        e?.pluginProviderTestApiKey,
+        e?.providerPaymentRedirectUrl,
+        e?.securityTransactionPin,
+        e?.securityTransactionPinMessage
       ]);
 
   @override

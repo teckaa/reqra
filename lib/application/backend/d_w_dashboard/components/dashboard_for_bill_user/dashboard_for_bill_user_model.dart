@@ -1,13 +1,10 @@
 import '/application/backend/d_w_plugins/bill_payments/components/list_of_bill_order_comp/list_of_bill_order_comp_widget.dart';
+import '/application/backend/d_w_settings/admin/adverts/users/list_of_ads/list_of_ads_widget.dart';
 import '/application/backend/d_w_users/user/components/account_balance/account_balance_widget.dart';
 import '/application/components/buttons/primary_button/primary_button_widget.dart';
-import '/application/components/icons/icon/icon_widget.dart';
 import '/application/components/layouts/icon_square_box/icon_square_box_widget.dart';
 import '/application/components/layouts/photo_grid_cover/photo_grid_cover_widget.dart';
-import '/application/components/shimmers/shimmer_card2/shimmer_card2_widget.dart';
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
-import '/components/ads_carousel_comp_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -37,6 +34,8 @@ class DashboardForBillUserModel
   late IconSquareBoxModel iconSquareBoxCableTVModel;
   // Model for IconSquareBox-More.
   late IconSquareBoxModel iconSquareBoxMoreModel;
+  // Model for ListOfAds component.
+  late ListOfAdsModel listOfAdsModel;
   // Model for ListOfBillOrderComp component.
   late ListOfBillOrderCompModel listOfBillOrderCompModel;
 
@@ -53,6 +52,7 @@ class DashboardForBillUserModel
     iconSquareBoxCableTVModel =
         createModel(context, () => IconSquareBoxModel());
     iconSquareBoxMoreModel = createModel(context, () => IconSquareBoxModel());
+    listOfAdsModel = createModel(context, () => ListOfAdsModel());
     listOfBillOrderCompModel =
         createModel(context, () => ListOfBillOrderCompModel());
   }
@@ -66,6 +66,7 @@ class DashboardForBillUserModel
     iconSquareBoxDataModel.dispose();
     iconSquareBoxCableTVModel.dispose();
     iconSquareBoxMoreModel.dispose();
+    listOfAdsModel.dispose();
     listOfBillOrderCompModel.dispose();
   }
 

@@ -37,11 +37,41 @@ class DwAnnouncementsRecord extends FirestoreRecord {
   String get postDesc => _postDesc ?? '';
   bool hasPostDesc() => _postDesc != null;
 
+  // "post_responsive" field.
+  List<String>? _postResponsive;
+  List<String> get postResponsive => _postResponsive ?? const [];
+  bool hasPostResponsive() => _postResponsive != null;
+
+  // "post_status" field.
+  bool? _postStatus;
+  bool get postStatus => _postStatus ?? false;
+  bool hasPostStatus() => _postStatus != null;
+
+  // "post_bg_color" field.
+  Color? _postBgColor;
+  Color? get postBgColor => _postBgColor;
+  bool hasPostBgColor() => _postBgColor != null;
+
+  // "post_text_color" field.
+  Color? _postTextColor;
+  Color? get postTextColor => _postTextColor;
+  bool hasPostTextColor() => _postTextColor != null;
+
+  // "post_text_size" field.
+  int? _postTextSize;
+  int get postTextSize => _postTextSize ?? 0;
+  bool hasPostTextSize() => _postTextSize != null;
+
   void _initializeFields() {
     _createdAt = snapshotData['created_at'] as DateTime?;
     _userRef = snapshotData['user_ref'] as DocumentReference?;
     _postTitle = snapshotData['post_title'] as String?;
     _postDesc = snapshotData['post_desc'] as String?;
+    _postResponsive = getDataList(snapshotData['post_responsive']);
+    _postStatus = snapshotData['post_status'] as bool?;
+    _postBgColor = getSchemaColor(snapshotData['post_bg_color']);
+    _postTextColor = getSchemaColor(snapshotData['post_text_color']);
+    _postTextSize = castToType<int>(snapshotData['post_text_size']);
   }
 
   static CollectionReference get collection =>
@@ -83,6 +113,10 @@ Map<String, dynamic> createDwAnnouncementsRecordData({
   DocumentReference? userRef,
   String? postTitle,
   String? postDesc,
+  bool? postStatus,
+  Color? postBgColor,
+  Color? postTextColor,
+  int? postTextSize,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -90,6 +124,10 @@ Map<String, dynamic> createDwAnnouncementsRecordData({
       'user_ref': userRef,
       'post_title': postTitle,
       'post_desc': postDesc,
+      'post_status': postStatus,
+      'post_bg_color': postBgColor,
+      'post_text_color': postTextColor,
+      'post_text_size': postTextSize,
     }.withoutNulls,
   );
 
@@ -102,15 +140,30 @@ class DwAnnouncementsRecordDocumentEquality
 
   @override
   bool equals(DwAnnouncementsRecord? e1, DwAnnouncementsRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.createdAt == e2?.createdAt &&
         e1?.userRef == e2?.userRef &&
         e1?.postTitle == e2?.postTitle &&
-        e1?.postDesc == e2?.postDesc;
+        e1?.postDesc == e2?.postDesc &&
+        listEquality.equals(e1?.postResponsive, e2?.postResponsive) &&
+        e1?.postStatus == e2?.postStatus &&
+        e1?.postBgColor == e2?.postBgColor &&
+        e1?.postTextColor == e2?.postTextColor &&
+        e1?.postTextSize == e2?.postTextSize;
   }
 
   @override
-  int hash(DwAnnouncementsRecord? e) => const ListEquality()
-      .hash([e?.createdAt, e?.userRef, e?.postTitle, e?.postDesc]);
+  int hash(DwAnnouncementsRecord? e) => const ListEquality().hash([
+        e?.createdAt,
+        e?.userRef,
+        e?.postTitle,
+        e?.postDesc,
+        e?.postResponsive,
+        e?.postStatus,
+        e?.postBgColor,
+        e?.postTextColor,
+        e?.postTextSize
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is DwAnnouncementsRecord;

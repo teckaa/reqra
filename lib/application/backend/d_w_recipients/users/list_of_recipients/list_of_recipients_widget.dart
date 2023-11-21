@@ -4,7 +4,6 @@ import '/application/backend/d_w_recipients/users/components/create_recipient/cr
 import '/application/backend/d_w_recipients/users/components/read_recipient/read_recipient_widget.dart';
 import '/application/backend/d_w_recipients/users/components/update_contact/update_contact_widget.dart';
 import '/application/components/buttons/primary_button/primary_button_widget.dart';
-import '/application/components/empty/empty_table/empty_table_widget.dart';
 import '/application/components/forms/search_text_field/search_text_field_widget.dart';
 import '/application/components/layouts/photo_grid/photo_grid_widget.dart';
 import '/application/components/layouts/title_with_back_button/title_with_back_button_widget.dart';
@@ -532,75 +531,6 @@ class _ListOfRecipientsWidgetState extends State<ListOfRecipientsWidget> {
                                               List<DwRecipientsRecord>
                                                   dataTableDwRecipientsRecordList =
                                                   snapshot.data!;
-                                              if (dataTableDwRecipientsRecordList
-                                                  .isEmpty) {
-                                                return Container(
-                                                  width: double.infinity,
-                                                  child: EmptyTableWidget(
-                                                    titlePara: _model
-                                                                    .choiceChipsValue !=
-                                                                null &&
-                                                            _model.choiceChipsValue !=
-                                                                ''
-                                                        ? '${_model.choiceChipsValue} is empty'
-                                                        : 'You have not create any contact yet',
-                                                    descPara: _model.choiceChipsValue !=
-                                                                null &&
-                                                            _model.choiceChipsValue !=
-                                                                ''
-                                                        ? 'Use the button below to add ${_model.choiceChipsValue}'
-                                                        : 'Add your friends and family contact and utilize them when you\'re ready to create an order.',
-                                                    buttonTextPara: 'Add new',
-                                                    buttonActionPara: () async {
-                                                      logFirebaseEvent(
-                                                          'LIST_OF_RECIPIENTS_DataTable_a64sqqd3_CA');
-                                                      logFirebaseEvent(
-                                                          'DataTable_bottom_sheet');
-                                                      await showModalBottomSheet(
-                                                        isScrollControlled:
-                                                            true,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        barrierColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .overlay,
-                                                        useSafeArea: true,
-                                                        context: context,
-                                                        builder: (context) {
-                                                          return WebViewAware(
-                                                              child:
-                                                                  GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
-                                                            child: Padding(
-                                                              padding: MediaQuery
-                                                                  .viewInsetsOf(
-                                                                      context),
-                                                              child:
-                                                                  CreateRecipientWidget(
-                                                                typeOfRecipentPara:
-                                                                    _model
-                                                                        .choiceChipsValue,
-                                                              ),
-                                                            ),
-                                                          ));
-                                                        },
-                                                      ).then((value) =>
-                                                          safeSetState(() {}));
-                                                    },
-                                                  ),
-                                                );
-                                              }
                                               return DataTable2(
                                                 columns: [
                                                   DataColumn2(
@@ -997,7 +927,7 @@ class _ListOfRecipientsWidgetState extends State<ListOfRecipientsWidget> {
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: ModalConfirmWidget(
-                                                                                    modalTitle: 'Delete contact',
+                                                                                    modalTitle: 'Delete Contact',
                                                                                     modalDesc: 'Are you sure you want to delete this contact',
                                                                                     modalAction: () async {
                                                                                       logFirebaseEvent('_backend_call');

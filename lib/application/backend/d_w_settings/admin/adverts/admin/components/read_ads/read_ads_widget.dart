@@ -162,7 +162,7 @@ class _ReadAdsWidgetState extends State<ReadAdsWidget>
                                           .toList();
                                       return Container(
                                         width: double.infinity,
-                                        height: 170.0,
+                                        height: 162.0,
                                         child: CarouselSlider.builder(
                                           itemCount: listOfDesign.length,
                                           itemBuilder:
@@ -183,26 +183,29 @@ class _ReadAdsWidgetState extends State<ReadAdsWidget>
                                                 if (columnDwAppAdsRecord
                                                         .adsType ==
                                                     'ImageBase')
-                                                  ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                    child: Image.network(
-                                                      getCORSProxyUrl(
-                                                        listOfDesignItem
-                                                            .adsImage,
-                                                      ),
-                                                      width: double.infinity,
-                                                      height: 100.0,
-                                                      fit: BoxFit.cover,
-                                                      errorBuilder: (context,
-                                                              error,
-                                                              stackTrace) =>
-                                                          Image.asset(
-                                                        'assets/images/error_image.png',
+                                                  Expanded(
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                      child: Image.network(
+                                                        getCORSProxyUrl(
+                                                          listOfDesignItem
+                                                              .adsImage,
+                                                        ),
                                                         width: double.infinity,
                                                         height: 100.0,
                                                         fit: BoxFit.cover,
+                                                        errorBuilder: (context,
+                                                                error,
+                                                                stackTrace) =>
+                                                            Image.asset(
+                                                          'assets/images/error_image.png',
+                                                          width:
+                                                              double.infinity,
+                                                          height: 100.0,
+                                                          fit: BoxFit.cover,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -320,8 +323,38 @@ class _ReadAdsWidgetState extends State<ReadAdsWidget>
                                                           ),
                                                           TextSpan(
                                                             text: listOfDesignItem
-                                                                .adsExternalLocation,
+                                                                            .adsExternalLocation !=
+                                                                        null &&
+                                                                    listOfDesignItem
+                                                                            .adsExternalLocation !=
+                                                                        ''
+                                                                ? listOfDesignItem
+                                                                    .adsExternalLocation
+                                                                : 'None',
                                                             style: TextStyle(),
+                                                            mouseCursor:
+                                                                SystemMouseCursors
+                                                                    .click,
+                                                            recognizer:
+                                                                TapGestureRecognizer()
+                                                                  ..onTap =
+                                                                      () async {
+                                                                    logFirebaseEvent(
+                                                                        'READ_ADS_RichTextSpan_lbfkw3r2_ON_TAP');
+                                                                    if (listOfDesignItem.adsExternalLocation !=
+                                                                            null &&
+                                                                        listOfDesignItem.adsExternalLocation !=
+                                                                            '') {
+                                                                      logFirebaseEvent(
+                                                                          'RichTextSpan_launch_u_r_l');
+                                                                      await launchURL(
+                                                                          listOfDesignItem
+                                                                              .adsExternalLocation);
+                                                                      return;
+                                                                    } else {
+                                                                      return;
+                                                                    }
+                                                                  },
                                                           )
                                                         ],
                                                         style:
@@ -532,6 +565,216 @@ class _ReadAdsWidgetState extends State<ReadAdsWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
                                     ),
+                                  ),
+                                  RichText(
+                                    textScaleFactor:
+                                        MediaQuery.of(context).textScaleFactor,
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'u9ok12dq' /* Position:  */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                fontWeight: FontWeight.bold,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily),
+                                              ),
+                                        ),
+                                        TextSpan(
+                                          text:
+                                              columnDwAppAdsRecord.adsPosition,
+                                          style: TextStyle(),
+                                        )
+                                      ],
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    ),
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      RichText(
+                                        textScaleFactor: MediaQuery.of(context)
+                                            .textScaleFactor,
+                                        text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                'lvu0pvi7' /* Selected Pages:  */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                    fontWeight: FontWeight.bold,
+                                                    useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                        .containsKey(
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily),
+                                                  ),
+                                            ),
+                                            TextSpan(
+                                              text: columnDwAppAdsRecord
+                                                  .adsPage.length
+                                                  .toString(),
+                                              style: TextStyle(),
+                                            )
+                                          ],
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                      ),
+                                      Builder(
+                                        builder: (context) {
+                                          final listOfPages =
+                                              columnDwAppAdsRecord.adsPage
+                                                  .toList();
+                                          return SingleChildScrollView(
+                                            scrollDirection: Axis.horizontal,
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: List.generate(
+                                                  listOfPages.length,
+                                                  (listOfPagesIndex) {
+                                                final listOfPagesItem =
+                                                    listOfPages[
+                                                        listOfPagesIndex];
+                                                return Container(
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20.0),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 5.0,
+                                                                5.0, 5.0),
+                                                    child: Text(
+                                                      listOfPagesItem,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodySmall,
+                                                    ),
+                                                  ),
+                                                );
+                                              }).divide(SizedBox(width: 6.0)),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    ].divide(SizedBox(width: 10.0)),
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      RichText(
+                                        textScaleFactor: MediaQuery.of(context)
+                                            .textScaleFactor,
+                                        text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                'hy17j4vm' /* Resposive:  */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                    fontWeight: FontWeight.bold,
+                                                    useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                        .containsKey(
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily),
+                                                  ),
+                                            )
+                                          ],
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                      ),
+                                      Builder(
+                                        builder: (context) {
+                                          final listOfDevices =
+                                              columnDwAppAdsRecord.adsResponsive
+                                                  .toList();
+                                          return SingleChildScrollView(
+                                            scrollDirection: Axis.horizontal,
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: List.generate(
+                                                  listOfDevices.length,
+                                                  (listOfDevicesIndex) {
+                                                final listOfDevicesItem =
+                                                    listOfDevices[
+                                                        listOfDevicesIndex];
+                                                return Container(
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20.0),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 5.0,
+                                                                5.0, 5.0),
+                                                    child: Text(
+                                                      listOfDevicesItem,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodySmall,
+                                                    ),
+                                                  ),
+                                                );
+                                              }).divide(SizedBox(width: 6.0)),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    ].divide(SizedBox(width: 5.0)),
                                   ),
                                 ].divide(SizedBox(height: 20.0)),
                               ),

@@ -67,11 +67,6 @@ class DwAppRecord extends FirestoreRecord {
   String get appSupportEmail => _appSupportEmail ?? '';
   bool hasAppSupportEmail() => _appSupportEmail != null;
 
-  // "announcement_status" field.
-  bool? _announcementStatus;
-  bool get announcementStatus => _announcementStatus ?? false;
-  bool hasAnnouncementStatus() => _announcementStatus != null;
-
   // "app_web_favicon" field.
   String? _appWebFavicon;
   String get appWebFavicon => _appWebFavicon ?? '';
@@ -114,7 +109,6 @@ class DwAppRecord extends FirestoreRecord {
     _appGeneralEmail = snapshotData['app_general_email'] as String?;
     _appAlertEmail = snapshotData['app_alert_email'] as String?;
     _appSupportEmail = snapshotData['app_support_email'] as String?;
-    _announcementStatus = snapshotData['announcement_status'] as bool?;
     _appWebFavicon = snapshotData['app_web_favicon'] as String?;
     _appDarkRectangleLogo = snapshotData['app_dark_rectangle_logo'] as String?;
     _appLightRectangleLogo =
@@ -168,7 +162,6 @@ Map<String, dynamic> createDwAppRecordData({
   String? appGeneralEmail,
   String? appAlertEmail,
   String? appSupportEmail,
-  bool? announcementStatus,
   String? appWebFavicon,
   String? appDarkRectangleLogo,
   String? appLightRectangleLogo,
@@ -188,7 +181,6 @@ Map<String, dynamic> createDwAppRecordData({
       'app_general_email': appGeneralEmail,
       'app_alert_email': appAlertEmail,
       'app_support_email': appSupportEmail,
-      'announcement_status': announcementStatus,
       'app_web_favicon': appWebFavicon,
       'app_dark_rectangle_logo': appDarkRectangleLogo,
       'app_light_rectangle_logo': appLightRectangleLogo,
@@ -216,7 +208,6 @@ class DwAppRecordDocumentEquality implements Equality<DwAppRecord> {
         e1?.appGeneralEmail == e2?.appGeneralEmail &&
         e1?.appAlertEmail == e2?.appAlertEmail &&
         e1?.appSupportEmail == e2?.appSupportEmail &&
-        e1?.announcementStatus == e2?.announcementStatus &&
         e1?.appWebFavicon == e2?.appWebFavicon &&
         e1?.appDarkRectangleLogo == e2?.appDarkRectangleLogo &&
         e1?.appLightRectangleLogo == e2?.appLightRectangleLogo &&
@@ -237,7 +228,6 @@ class DwAppRecordDocumentEquality implements Equality<DwAppRecord> {
         e?.appGeneralEmail,
         e?.appAlertEmail,
         e?.appSupportEmail,
-        e?.announcementStatus,
         e?.appWebFavicon,
         e?.appDarkRectangleLogo,
         e?.appLightRectangleLogo,

@@ -47,6 +47,20 @@ class DwPluginsRecord extends FirestoreRecord {
   bool get pluginStatus => _pluginStatus ?? false;
   bool hasPluginStatus() => _pluginStatus != null;
 
+  // "plugin_security_transaction_status" field.
+  bool? _pluginSecurityTransactionStatus;
+  bool get pluginSecurityTransactionStatus =>
+      _pluginSecurityTransactionStatus ?? false;
+  bool hasPluginSecurityTransactionStatus() =>
+      _pluginSecurityTransactionStatus != null;
+
+  // "plugin_security_transaction_message" field.
+  String? _pluginSecurityTransactionMessage;
+  String get pluginSecurityTransactionMessage =>
+      _pluginSecurityTransactionMessage ?? '';
+  bool hasPluginSecurityTransactionMessage() =>
+      _pluginSecurityTransactionMessage != null;
+
   void _initializeFields() {
     _createdAt = snapshotData['created_at'] as DateTime?;
     _userRef = snapshotData['user_ref'] as DocumentReference?;
@@ -54,6 +68,10 @@ class DwPluginsRecord extends FirestoreRecord {
     _pluginDesc = snapshotData['plugin_desc'] as String?;
     _pluginPhoto = snapshotData['plugin_photo'] as String?;
     _pluginStatus = snapshotData['plugin_status'] as bool?;
+    _pluginSecurityTransactionStatus =
+        snapshotData['plugin_security_transaction_status'] as bool?;
+    _pluginSecurityTransactionMessage =
+        snapshotData['plugin_security_transaction_message'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -97,6 +115,8 @@ Map<String, dynamic> createDwPluginsRecordData({
   String? pluginDesc,
   String? pluginPhoto,
   bool? pluginStatus,
+  bool? pluginSecurityTransactionStatus,
+  String? pluginSecurityTransactionMessage,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -106,6 +126,8 @@ Map<String, dynamic> createDwPluginsRecordData({
       'plugin_desc': pluginDesc,
       'plugin_photo': pluginPhoto,
       'plugin_status': pluginStatus,
+      'plugin_security_transaction_status': pluginSecurityTransactionStatus,
+      'plugin_security_transaction_message': pluginSecurityTransactionMessage,
     }.withoutNulls,
   );
 
@@ -122,7 +144,11 @@ class DwPluginsRecordDocumentEquality implements Equality<DwPluginsRecord> {
         e1?.pluginName == e2?.pluginName &&
         e1?.pluginDesc == e2?.pluginDesc &&
         e1?.pluginPhoto == e2?.pluginPhoto &&
-        e1?.pluginStatus == e2?.pluginStatus;
+        e1?.pluginStatus == e2?.pluginStatus &&
+        e1?.pluginSecurityTransactionStatus ==
+            e2?.pluginSecurityTransactionStatus &&
+        e1?.pluginSecurityTransactionMessage ==
+            e2?.pluginSecurityTransactionMessage;
   }
 
   @override
@@ -132,7 +158,9 @@ class DwPluginsRecordDocumentEquality implements Equality<DwPluginsRecord> {
         e?.pluginName,
         e?.pluginDesc,
         e?.pluginPhoto,
-        e?.pluginStatus
+        e?.pluginStatus,
+        e?.pluginSecurityTransactionStatus,
+        e?.pluginSecurityTransactionMessage
       ]);
 
   @override

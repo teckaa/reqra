@@ -320,11 +320,15 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                     'SidebarMenuItem-Security_navigate_to');
 
                                 context.pushNamed('ChangePassword');
+
+                                return;
                               } else {
                                 logFirebaseEvent(
                                     'SidebarMenuItem-Security_navigate_to');
 
                                 context.pushNamed('Security');
+
+                                return;
                               }
                             },
                             child: wrapWithModel(
@@ -334,6 +338,51 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                 itemName: 'Security',
                                 itemIcon: Icon(
                                   FFIcons.ksecurity,
+                                  size: 20.0,
+                                ),
+                                itemBgColor:
+                                    widget.selectedSidebarNav == 'Security'
+                                        ? FlutterFlowTheme.of(context).accent3
+                                        : Color(0x00000000),
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              logFirebaseEvent(
+                                  'SIDEBAR_SidebarMenuItem-TransactionSecur');
+                              if (MediaQuery.sizeOf(context).width <
+                                      kBreakpointSmall
+                                  ? true
+                                  : true) {
+                                logFirebaseEvent(
+                                    'SidebarMenuItem-TransactionSecurity_upda');
+                                setState(() {
+                                  FFAppState().menuType =
+                                      'Transaction Security';
+                                });
+                                return;
+                              } else {
+                                logFirebaseEvent(
+                                    'SidebarMenuItem-TransactionSecurity_navi');
+
+                                context.pushNamed('TransactionSecurity');
+
+                                return;
+                              }
+                            },
+                            child: wrapWithModel(
+                              model: _model
+                                  .sidebarMenuItemTransactionSecurityModel,
+                              updateCallback: () => setState(() {}),
+                              child: SidebarMenuItemWidget(
+                                itemName: 'Transaction Security',
+                                itemIcon: Icon(
+                                  FFIcons.ksecuritySafe,
                                   size: 20.0,
                                 ),
                                 itemBgColor:
@@ -775,7 +824,7 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                 context.pushNamed('CreatePin');
                               },
                               child: wrapWithModel(
-                                model: _model.sidebarMenuItemPinModel,
+                                model: _model.sidebarMenuItemPinModel1,
                                 updateCallback: () => setState(() {}),
                                 updateOnChange: true,
                                 child: SidebarMenuItemWidget(
@@ -817,10 +866,10 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                               logFirebaseEvent(
                                   'SidebarMenuItem-Biometric_navigate_to');
 
-                              context.pushNamed('Biometric');
+                              context.pushNamed('LoginBiometric');
                             },
                             child: wrapWithModel(
-                              model: _model.sidebarMenuItemBiometricModel,
+                              model: _model.sidebarMenuItemBiometricModel1,
                               updateCallback: () => setState(() {}),
                               updateOnChange: true,
                               child: SidebarMenuItemWidget(
@@ -1193,7 +1242,7 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                             },
                             child: wrapWithModel(
                               model:
-                                  _model.sidebarMenuItemManageRecipientsModel1,
+                                  _model.sidebarMenuItemManageRecipientsModel,
                               updateCallback: () => setState(() {}),
                               child: SidebarMenuItemWidget(
                                 itemName: 'Manage Recipients',
@@ -1215,15 +1264,43 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               logFirebaseEvent(
-                                  'SIDEBAR_SidebarMenuItem-ManageRecipients');
+                                  'SIDEBAR_SidebarMenuItem-ManageSecurity_O');
                               logFirebaseEvent(
-                                  'SidebarMenuItem-ManageRecipients_navigat');
+                                  'SidebarMenuItem-ManageSecurity_navigate_');
+
+                              context.pushNamed('ManageSecurity');
+                            },
+                            child: wrapWithModel(
+                              model: _model.sidebarMenuItemManageSecurityModel,
+                              updateCallback: () => setState(() {}),
+                              child: SidebarMenuItemWidget(
+                                itemName: 'Manage Security',
+                                itemIcon: Icon(
+                                  FFIcons.ksecuritySafe,
+                                  size: 20.0,
+                                ),
+                                itemBgColor: widget.selectedSidebarNav ==
+                                        'Manage Security'
+                                    ? FlutterFlowTheme.of(context).accent3
+                                    : Color(0x00000000),
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              logFirebaseEvent(
+                                  'SIDEBAR_SidebarMenuItem-ManageAppAds_ON_');
+                              logFirebaseEvent(
+                                  'SidebarMenuItem-ManageAppAds_navigate_to');
 
                               context.pushNamed('ManageAds');
                             },
                             child: wrapWithModel(
-                              model:
-                                  _model.sidebarMenuItemManageRecipientsModel2,
+                              model: _model.sidebarMenuItemManageAppAdsModel,
                               updateCallback: () => setState(() {}),
                               child: SidebarMenuItemWidget(
                                 itemName: 'Manage App Ads',
@@ -1235,6 +1312,164 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                         'Manage App Ads'
                                     ? FlutterFlowTheme.of(context).accent3
                                     : Color(0x00000000),
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    } else if (FFAppState().menuType ==
+                        'Transaction Security') {
+                      return Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 0.0, 0.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    logFirebaseEvent(
+                                        'SIDEBAR_COMP_COMP_Row_vmf1c5j1_ON_TAP');
+                                    logFirebaseEvent('Row_update_app_state');
+                                    setState(() {
+                                      FFAppState().menuType = '';
+                                    });
+                                    logFirebaseEvent('Row_navigate_to');
+
+                                    context.pushNamed('Dashboard');
+                                  },
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Icon(
+                                        FFIcons.karrowLeft2,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        size: 16.0,
+                                      ),
+                                      Text(
+                                        FFLocalizations.of(context).getText(
+                                          'i7emfrfz' /* Main Menu */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              fontSize: 12.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
+                                            ),
+                                      ),
+                                    ].divide(SizedBox(width: 6.0)),
+                                  ),
+                                ),
+                                Text(
+                                  FFLocalizations.of(context).getText(
+                                    '77tzwqqd' /* Transaction Security */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .labelMediumFamily,
+                                        fontWeight: FontWeight.bold,
+                                        decoration: TextDecoration.underline,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily),
+                                      ),
+                                ),
+                              ].divide(SizedBox(height: 30.0)),
+                            ),
+                          ),
+                          AuthUserStreamWidget(
+                            builder: (context) => InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                logFirebaseEvent(
+                                    'SIDEBAR_SidebarMenuItem-Pin_ON_TAP');
+                                logFirebaseEvent(
+                                    'SidebarMenuItem-Pin_navigate_to');
+
+                                context.pushNamed('CreatePin');
+                              },
+                              child: wrapWithModel(
+                                model: _model.sidebarMenuItemPinModel2,
+                                updateCallback: () => setState(() {}),
+                                updateOnChange: true,
+                                child: SidebarMenuItemWidget(
+                                  itemName: valueOrDefault<String>(
+                                    valueOrDefault(
+                                                    currentUserDocument
+                                                        ?.securityPin,
+                                                    '') !=
+                                                null &&
+                                            valueOrDefault(
+                                                    currentUserDocument
+                                                        ?.securityPin,
+                                                    '') !=
+                                                ''
+                                        ? 'Update your Security Transaction Pin'
+                                        : 'Set your Transaction Pin',
+                                    'Set your Pin',
+                                  ),
+                                  itemIcon: Icon(
+                                    FFIcons.kcalculator,
+                                    size: 18.0,
+                                  ),
+                                  itemBgColor: widget.selectedSidebarNav ==
+                                          'Set your Transaction Pin'
+                                      ? FlutterFlowTheme.of(context).accent3
+                                      : Color(0x00000000),
+                                ),
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              logFirebaseEvent(
+                                  'SIDEBAR_SidebarMenuItem-Biometric_ON_TAP');
+                              logFirebaseEvent(
+                                  'SidebarMenuItem-Biometric_navigate_to');
+
+                              context.pushNamed('LoginBiometric');
+                            },
+                            child: wrapWithModel(
+                              model: _model.sidebarMenuItemBiometricModel2,
+                              updateCallback: () => setState(() {}),
+                              updateOnChange: true,
+                              child: SidebarMenuItemWidget(
+                                itemName: 'Biometrics',
+                                itemIcon: Icon(
+                                  FFIcons.kfingerScan,
+                                  size: 18.0,
+                                ),
+                                itemBgColor:
+                                    widget.selectedSidebarNav == 'Biometrics'
+                                        ? FlutterFlowTheme.of(context).accent3
+                                        : Color(0x00000000),
                               ),
                             ),
                           ),
@@ -1284,7 +1519,7 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                       dwPluginsRecord
                                           .where(
                                             'plugin_name',
-                                            isEqualTo: 'Bill Payments',
+                                            isEqualTo: 'Bill Payment',
                                           )
                                           .where(
                                             'plugin_status',
@@ -1305,16 +1540,16 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                     );
                                   }
                                   List<DwPluginsRecord>
-                                      columnBillPayDwPluginsRecordList =
+                                      columnBillPaymentDwPluginsRecordList =
                                       snapshot.data!;
                                   // Return an empty Container when the item does not exist.
                                   if (snapshot.data!.isEmpty) {
                                     return Container();
                                   }
-                                  final columnBillPayDwPluginsRecord =
-                                      columnBillPayDwPluginsRecordList
+                                  final columnBillPaymentDwPluginsRecord =
+                                      columnBillPaymentDwPluginsRecordList
                                               .isNotEmpty
-                                          ? columnBillPayDwPluginsRecordList
+                                          ? columnBillPaymentDwPluginsRecordList
                                               .first
                                           : null;
                                   return Column(
@@ -1676,7 +1911,7 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                       dwPluginsRecord
                                           .where(
                                             'plugin_name',
-                                            isEqualTo: 'Giftcards',
+                                            isEqualTo: 'Giftcard',
                                           )
                                           .where(
                                             'plugin_status',
@@ -1697,16 +1932,16 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                     );
                                   }
                                   List<DwPluginsRecord>
-                                      columnGiftcardsDwPluginsRecordList =
+                                      columnGiftcardDwPluginsRecordList =
                                       snapshot.data!;
                                   // Return an empty Container when the item does not exist.
                                   if (snapshot.data!.isEmpty) {
                                     return Container();
                                   }
-                                  final columnGiftcardsDwPluginsRecord =
-                                      columnGiftcardsDwPluginsRecordList
+                                  final columnGiftcardDwPluginsRecord =
+                                      columnGiftcardDwPluginsRecordList
                                               .isNotEmpty
-                                          ? columnGiftcardsDwPluginsRecordList
+                                          ? columnGiftcardDwPluginsRecordList
                                               .first
                                           : null;
                                   return Column(
@@ -1762,7 +1997,7 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                       dwPluginsRecord
                                           .where(
                                             'plugin_name',
-                                            isEqualTo: 'Cryptos',
+                                            isEqualTo: 'Crypto',
                                           )
                                           .where(
                                             'plugin_status',
@@ -1783,16 +2018,15 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                     );
                                   }
                                   List<DwPluginsRecord>
-                                      columnCryptosDwPluginsRecordList =
+                                      columnCryptoDwPluginsRecordList =
                                       snapshot.data!;
                                   // Return an empty Container when the item does not exist.
                                   if (snapshot.data!.isEmpty) {
                                     return Container();
                                   }
-                                  final columnCryptosDwPluginsRecord =
-                                      columnCryptosDwPluginsRecordList
-                                              .isNotEmpty
-                                          ? columnCryptosDwPluginsRecordList
+                                  final columnCryptoDwPluginsRecord =
+                                      columnCryptoDwPluginsRecordList.isNotEmpty
+                                          ? columnCryptoDwPluginsRecordList
                                               .first
                                           : null;
                                   return Column(
@@ -1957,7 +2191,7 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                         20.0, 15.0, 15.0, 15.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        '855ep1m2' /* Administrator */,
+                                        'w5plrowh' /* Administrator */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
@@ -1990,7 +2224,7 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                                       .where(
                                                         'plugin_name',
                                                         isEqualTo:
-                                                            'Bill Payments',
+                                                            'Bill Payment',
                                                       )
                                                       .where(
                                                         'plugin_status',
@@ -2053,7 +2287,7 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                                       child:
                                                           SidebarMenuItemWidget(
                                                         itemName:
-                                                            'Bill Payments',
+                                                            'Bill Payment',
                                                         itemIcon: Icon(
                                                           FFIcons.kbill,
                                                           size: 18.0,
@@ -2294,7 +2528,7 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                                             child:
                                                                 MenuItemWidget(
                                                               itemName:
-                                                                  'Settings',
+                                                                  'Fintech Settings',
                                                             ),
                                                           ),
                                                         ),
@@ -2464,7 +2698,7 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                                             child:
                                                                 MenuItemWidget(
                                                               itemName:
-                                                                  'Settings',
+                                                                  'Ecommerce Settings',
                                                             ),
                                                           ),
                                                         ),
@@ -2482,7 +2716,7 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                                   dwPluginsRecord
                                                       .where(
                                                         'plugin_name',
-                                                        isEqualTo: 'Giftcards',
+                                                        isEqualTo: 'Giftcard',
                                                       )
                                                       .where(
                                                         'plugin_status',
@@ -2502,16 +2736,16 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                                 );
                                               }
                                               List<DwPluginsRecord>
-                                                  columnGiftcardsDwPluginsRecordList =
+                                                  columnGiftcardDwPluginsRecordList =
                                                   snapshot.data!;
                                               // Return an empty Container when the item does not exist.
                                               if (snapshot.data!.isEmpty) {
                                                 return Container();
                                               }
-                                              final columnGiftcardsDwPluginsRecord =
-                                                  columnGiftcardsDwPluginsRecordList
+                                              final columnGiftcardDwPluginsRecord =
+                                                  columnGiftcardDwPluginsRecordList
                                                           .isNotEmpty
-                                                      ? columnGiftcardsDwPluginsRecordList
+                                                      ? columnGiftcardDwPluginsRecordList
                                                           .first
                                                       : null;
                                               return Column(
@@ -2530,21 +2764,21 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       logFirebaseEvent(
-                                                          'SIDEBAR_SidebarMenuItem-Giftcards_ON_TAP');
+                                                          'SIDEBAR_SidebarMenuItem-Giftcard_ON_TAP');
                                                       logFirebaseEvent(
-                                                          'SidebarMenuItem-Giftcards_navigate_to');
+                                                          'SidebarMenuItem-Giftcard_navigate_to');
 
                                                       context.pushNamed(
                                                           'ListOfCardsOrders');
                                                     },
                                                     child: wrapWithModel(
                                                       model: _model
-                                                          .sidebarMenuItemGiftcardsModel,
+                                                          .sidebarMenuItemGiftcardModel,
                                                       updateCallback: () =>
                                                           setState(() {}),
                                                       child:
                                                           SidebarMenuItemWidget(
-                                                        itemName: 'Giftcards',
+                                                        itemName: 'Giftcard',
                                                         itemIcon: Icon(
                                                           FFIcons.kshoppingCart,
                                                           size: 18.0,
@@ -2597,7 +2831,7 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                                               setState(() {}),
                                                           child: MenuItemWidget(
                                                             itemName:
-                                                                'Settings',
+                                                                'Giftcard Settings',
                                                           ),
                                                         ),
                                                       ].divide(SizedBox(
@@ -2614,7 +2848,7 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                                   dwPluginsRecord
                                                       .where(
                                                         'plugin_name',
-                                                        isEqualTo: 'Cryptos',
+                                                        isEqualTo: 'Crypto',
                                                       )
                                                       .where(
                                                         'plugin_status',
@@ -2634,16 +2868,16 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                                 );
                                               }
                                               List<DwPluginsRecord>
-                                                  columnCryptosDwPluginsRecordList =
+                                                  columnCryptoDwPluginsRecordList =
                                                   snapshot.data!;
                                               // Return an empty Container when the item does not exist.
                                               if (snapshot.data!.isEmpty) {
                                                 return Container();
                                               }
-                                              final columnCryptosDwPluginsRecord =
-                                                  columnCryptosDwPluginsRecordList
+                                              final columnCryptoDwPluginsRecord =
+                                                  columnCryptoDwPluginsRecordList
                                                           .isNotEmpty
-                                                      ? columnCryptosDwPluginsRecordList
+                                                      ? columnCryptoDwPluginsRecordList
                                                           .first
                                                       : null;
                                               return Column(
@@ -2792,7 +3026,7 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                                             child:
                                                                 MenuItemWidget(
                                                               itemName:
-                                                                  'Settings',
+                                                                  'Crypto Settings',
                                                             ),
                                                           ),
                                                         ),
@@ -2948,7 +3182,7 @@ class _SidebarCompWidgetState extends State<SidebarCompWidget> {
                                             20.0, 15.0, 15.0, 15.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'm8vavksi' /* Content Manager */,
+                                            'e6bq5dsl' /* Content Manager */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium

@@ -211,7 +211,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'w1zyhr1i' /* Change password */,
+                                                          'w1zyhr1i' /* Change Password */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -295,7 +295,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'w00h8jf8' /* Security pin */,
+                                                          'w00h8jf8' /* Security Pin */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(

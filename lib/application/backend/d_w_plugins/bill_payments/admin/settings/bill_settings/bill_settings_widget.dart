@@ -6,6 +6,7 @@ import '/application/components/buttons/primary_button_loading/primary_button_lo
 import '/application/components/buttons/primary_rounded_button/primary_rounded_button_widget.dart';
 import '/application/components/empty/no_access_error/no_access_error_widget.dart';
 import '/application/components/forms/input_text_field/input_text_field_widget.dart';
+import '/application/components/forms/url_text_field/url_text_field_widget.dart';
 import '/application/components/shimmers/shimmer_card/shimmer_card_widget.dart';
 import '/application/components/shimmers/shimmer_card2/shimmer_card2_widget.dart';
 import '/application/components/shimmers/shimmer_circle_button/shimmer_circle_button_widget.dart';
@@ -285,12 +286,30 @@ class _BillSettingsWidgetState extends State<BillSettingsWidget>
                                                                       ),
                                                                     ],
                                                                   ),
-                                                                  Tab(
-                                                                    text: FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      '4ir8twqh' /* Cash Back */,
-                                                                    ),
+                                                                  Row(
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .center,
+                                                                    children: [
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            8.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Icon(
+                                                                          FFIcons
+                                                                              .kdata2,
+                                                                        ),
+                                                                      ),
+                                                                      Tab(
+                                                                        text: FFLocalizations.of(context)
+                                                                            .getText(
+                                                                          '4ir8twqh' /* Services / Providers */,
+                                                                        ),
+                                                                      ),
+                                                                    ],
                                                                   ),
                                                                 ],
                                                                 controller: _model
@@ -450,13 +469,13 @@ class _BillSettingsWidgetState extends State<BillSettingsWidget>
                                                                                     ),
                                                                                     options: [
                                                                                       FFLocalizations.of(context).getText(
-                                                                                        '9e431ul1' /* NG */,
+                                                                                        '9e431ul1' /* NGN */,
                                                                                       ),
                                                                                       FFLocalizations.of(context).getText(
                                                                                         '90vgkulr' /* GH */,
                                                                                       ),
                                                                                       FFLocalizations.of(context).getText(
-                                                                                        'gxdu4c6h' /* USA */,
+                                                                                        'gxdu4c6h' /* USD */,
                                                                                       )
                                                                                     ],
                                                                                     onChanged: (val) => setState(() => _model.dropDownCountryValue = val),
@@ -480,11 +499,23 @@ class _BillSettingsWidgetState extends State<BillSettingsWidget>
                                                                                   ),
                                                                                 ].divide(SizedBox(height: 5.0)),
                                                                               ),
+                                                                              wrapWithModel(
+                                                                                model: _model.urlTextFieldModel,
+                                                                                updateCallback: () => setState(() {}),
+                                                                                updateOnChange: true,
+                                                                                child: UrlTextFieldWidget(
+                                                                                  labelPara: 'Payment Redirect Url',
+                                                                                  hintPara: 'https://',
+                                                                                  readOnlyStatusPara: false,
+                                                                                  actionPara: () async {},
+                                                                                ),
+                                                                              ),
                                                                               Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                                                                                 child: wrapWithModel(
                                                                                   model: _model.primaryButtonLoadingModel,
                                                                                   updateCallback: () => setState(() {}),
+                                                                                  updateOnChange: true,
                                                                                   child: PrimaryButtonLoadingWidget(
                                                                                     buttonText: 'Save changes',
                                                                                     buttonWidth: 130,
@@ -502,6 +533,7 @@ class _BillSettingsWidgetState extends State<BillSettingsWidget>
                                                                                         pluginProviderApi: _model.dropDownProviderValue,
                                                                                         pluginProviderApiKey: _model.inputTextFieldPublicProviderApiModel.textController.text,
                                                                                         pluginCurrency: _model.dropDownCountryValue,
+                                                                                        providerPaymentRedirectUrl: _model.urlTextFieldModel.textController.text,
                                                                                       ));
                                                                                       logFirebaseEvent('PrimaryButtonLoading_action_block');
                                                                                       await action_blocks.alertSuccess(

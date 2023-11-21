@@ -61,7 +61,7 @@ class _CreatePinWidgetState extends State<CreatePinWidget> {
     context.watch<FFAppState>();
 
     return Title(
-        title: 'Security pin',
+        title: 'Login Security Pin',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
@@ -97,7 +97,7 @@ class _CreatePinWidgetState extends State<CreatePinWidget> {
                     ),
                     title: Text(
                       FFLocalizations.of(context).getText(
-                        '20z2c1xe' /* Security pin */,
+                        '20z2c1xe' /* Security Pin */,
                       ),
                       style: FlutterFlowTheme.of(context).titleLarge,
                     ),
@@ -128,7 +128,7 @@ class _CreatePinWidgetState extends State<CreatePinWidget> {
                           model: _model.dWHeaderModel,
                           updateCallback: () => setState(() {}),
                           child: DWHeaderWidget(
-                            pageTitle: 'Security pin',
+                            pageTitle: 'Security Pin',
                           ),
                         ),
                         Column(

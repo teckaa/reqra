@@ -62,11 +62,15 @@ class _PhotoGridCoverWidgetState extends State<PhotoGridCoverWidget> {
       width: widget.photoWidth?.toDouble(),
       height: widget.photoHeight?.toDouble(),
       decoration: BoxDecoration(
-        color: widget.bgColor,
+        color: valueOrDefault<Color>(
+          widget.bgColor,
+          FlutterFlowTheme.of(context).primaryText,
+        ),
         shape: BoxShape.rectangle,
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Builder(
             builder: (context) {
@@ -78,10 +82,7 @@ class _PhotoGridCoverWidgetState extends State<PhotoGridCoverWidget> {
                       'https://dummyimage.com/100x4:4/',
                     ),
                   ),
-                  width: valueOrDefault<double>(
-                    widget.photoWidth?.toDouble(),
-                    40.0,
-                  ),
+                  width: widget.photoWidth?.toDouble(),
                   height: valueOrDefault<double>(
                     widget.photoHeight?.toDouble(),
                     40.0,
@@ -90,35 +91,37 @@ class _PhotoGridCoverWidgetState extends State<PhotoGridCoverWidget> {
                 );
               } else {
                 return Container(
-                  width: valueOrDefault<double>(
-                    widget.photoWidth?.toDouble(),
-                    80.0,
-                  ),
+                  width: widget.photoWidth?.toDouble(),
                   height: valueOrDefault<double>(
                     widget.photoHeight?.toDouble(),
                     80.0,
                   ),
                   decoration: BoxDecoration(
-                    color: widget.bgColor,
                     shape: BoxShape.rectangle,
                   ),
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        widget.photoName!,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyMediumFamily,
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              fontSize: widget.photoNameFontSize.toDouble(),
-                              fontWeight: FontWeight.w600,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily),
-                            ),
+                      Align(
+                        alignment: AlignmentDirectional(0.00, 0.00),
+                        child: Text(
+                          widget.photoName!,
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                fontSize: widget.photoNameFontSize.toDouble(),
+                                fontWeight: FontWeight.w600,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
+                              ),
+                        ),
                       ),
                     ],
                   ),

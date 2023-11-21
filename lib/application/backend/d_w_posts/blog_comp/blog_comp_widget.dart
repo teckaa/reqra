@@ -20,7 +20,13 @@ import 'blog_comp_model.dart';
 export 'blog_comp_model.dart';
 
 class BlogCompWidget extends StatefulWidget {
-  const BlogCompWidget({Key? key}) : super(key: key);
+  const BlogCompWidget({
+    Key? key,
+    String? publishedStatus,
+  })  : this.publishedStatus = publishedStatus ?? 'Published',
+        super(key: key);
+
+  final String publishedStatus;
 
   @override
   _BlogCompWidgetState createState() => _BlogCompWidgetState();
@@ -451,9 +457,9 @@ class _BlogCompWidgetState extends State<BlogCompWidget>
                                   queryBuilder: (dwPostsRecord) => dwPostsRecord
                                       .where(
                                         'post_publish_status',
-                                        isEqualTo: 'Published',
+                                        isEqualTo: widget.publishedStatus,
                                       )
-                                      .orderBy('created_at'),
+                                      .orderBy('created_at', descending: true),
                                   limit: 12,
                                 ),
                                 builder: (context, snapshot) {

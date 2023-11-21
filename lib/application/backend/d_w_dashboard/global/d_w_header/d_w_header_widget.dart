@@ -1,14 +1,18 @@
 import '/application/components/layouts/photo_grid_cover/photo_grid_cover_widget.dart';
 import '/application/components/modals/modal_drop_down/modal_drop_down_widget.dart';
-import '/application/components/shimmers/shimmer_one_detail/shimmer_one_detail_widget.dart';
+import '/application/components/shimmers/shimmer_card2/shimmer_card2_widget.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:aligned_dialog/aligned_dialog.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -43,6 +47,24 @@ class _DWHeaderWidgetState extends State<DWHeaderWidget> {
     super.initState();
     _model = createModel(context, () => DWHeaderModel());
 
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('D_W_HEADER_COMP_DWHeader_ON_INIT_STATE');
+      // Action 1 - Get Announcement Data
+      logFirebaseEvent('DWHeader_Action1-GetAnnouncementData');
+      unawaited(
+        () async {
+          _model.getAnnouncementData = await queryDwAnnouncementsRecordCount(
+            queryBuilder: (dwAnnouncementsRecord) =>
+                dwAnnouncementsRecord.where(
+              'post_status',
+              isEqualTo: true,
+            ),
+          );
+        }(),
+      );
+    });
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -59,9 +81,7 @@ class _DWHeaderWidgetState extends State<DWHeaderWidget> {
 
     return Container(
       width: double.infinity,
-      decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).secondaryBackground,
-      ),
+      decoration: BoxDecoration(),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -73,9 +93,7 @@ class _DWHeaderWidgetState extends State<DWHeaderWidget> {
           ))
             Container(
               width: double.infinity,
-              decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).secondaryBackground,
-              ),
+              decoration: BoxDecoration(),
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10.0, 15.0, 10.0, 15.0),
                 child: Row(
@@ -206,169 +224,104 @@ class _DWHeaderWidgetState extends State<DWHeaderWidget> {
                 ),
               ),
             ),
-          if (responsiveVisibility(
-            context: context,
-            phone: false,
-            tablet: false,
-            tabletLandscape: false,
-            desktop: false,
-          ))
-            StreamBuilder<List<DwAppRecord>>(
-              stream: queryDwAppRecord(
-                singleRecord: true,
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+            child: StreamBuilder<List<DwAnnouncementsRecord>>(
+              stream: queryDwAnnouncementsRecord(
+                queryBuilder: (dwAnnouncementsRecord) => dwAnnouncementsRecord
+                    .where(
+                      'post_status',
+                      isEqualTo: true,
+                    )
+                    .orderBy('created_at', descending: true),
               ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
                 if (!snapshot.hasData) {
-                  return Container(
-                    width: double.infinity,
-                    height: 100.0,
-                    child: ShimmerOneDetailWidget(),
+                  return ShimmerCard2Widget(
+                    itemNo: 1,
+                    itemSpacing: 20,
+                    itemHeight: 60,
                   );
                 }
-                List<DwAppRecord> containerAnnouncementBarDwAppRecordList =
+                List<DwAnnouncementsRecord>
+                    listViewAnnouncementBarDwAnnouncementsRecordList =
                     snapshot.data!;
-                // Return an empty Container when the item does not exist.
-                if (snapshot.data!.isEmpty) {
-                  return Container();
-                }
-                final containerAnnouncementBarDwAppRecord =
-                    containerAnnouncementBarDwAppRecordList.isNotEmpty
-                        ? containerAnnouncementBarDwAppRecordList.first
-                        : null;
-                return Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                  ),
-                  child: Visibility(
-                    visible: containerAnnouncementBarDwAppRecord
-                            ?.announcementStatus ==
-                        true,
-                    child: StreamBuilder<List<DwAnnouncementsRecord>>(
-                      stream: queryDwAnnouncementsRecord(
-                        queryBuilder: (dwAnnouncementsRecord) =>
-                            dwAnnouncementsRecord.orderBy('created_at',
-                                descending: true),
-                        singleRecord: true,
+                return ListView.separated(
+                  padding: EdgeInsets.zero,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  itemCount:
+                      listViewAnnouncementBarDwAnnouncementsRecordList.length,
+                  separatorBuilder: (_, __) => SizedBox(
+                      height: (listViewAnnouncementBarDwAnnouncementsRecordList
+                                      .length ==
+                                  0
+                              ? 0
+                              : 20)
+                          .toDouble()),
+                  itemBuilder: (context, listViewAnnouncementBarIndex) {
+                    final listViewAnnouncementBarDwAnnouncementsRecord =
+                        listViewAnnouncementBarDwAnnouncementsRecordList[
+                            listViewAnnouncementBarIndex];
+                    return Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: valueOrDefault<Color>(
+                          listViewAnnouncementBarDwAnnouncementsRecord
+                              .postBgColor,
+                          FlutterFlowTheme.of(context).warningSoft,
+                        ),
+                        borderRadius: BorderRadius.circular(0.0),
                       ),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: LinearProgressIndicator(
-                              color: FlutterFlowTheme.of(context).primary,
-                            ),
-                          );
-                        }
-                        List<DwAnnouncementsRecord>
-                            columnDwAnnouncementsRecordList = snapshot.data!;
-                        // Return an empty Container when the item does not exist.
-                        if (snapshot.data!.isEmpty) {
-                          return Container();
-                        }
-                        final columnDwAnnouncementsRecord =
-                            columnDwAnnouncementsRecordList.isNotEmpty
-                                ? columnDwAnnouncementsRecordList.first
-                                : null;
-                        return Column(
-                          mainAxisSize: MainAxisSize.min,
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            10.0, 10.0, 10.0, 10.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 10.0, 10.0, 10.0),
-                              child: Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFF9F5CB),
-                                  borderRadius: BorderRadius.circular(0.0),
-                                ),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Container(
-                                      width: 5.0,
-                                      height: 70.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 10.0, 10.0, 10.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 5.0),
-                                              child: Text(
-                                                columnDwAnnouncementsRecord!
-                                                    .postTitle,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          color:
-                                                              Color(0xFF1E2429),
-                                                          fontSize: 14.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
-                                                        ),
-                                              ),
-                                            ),
-                                            Text(
-                                              columnDwAnnouncementsRecord!
-                                                  .postDesc,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
-                                                        color:
-                                                            Color(0xFF1E2429),
-                                                        fontSize: 12.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
-                                                      ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
+                            Text(
+                              listViewAnnouncementBarDwAnnouncementsRecord
+                                  .postTitle,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily,
+                                    color: Color(0xFF1E2429),
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodyMediumFamily),
+                                  ),
                             ),
-                          ],
-                        );
-                      },
-                    ),
-                  ),
+                            Text(
+                              listViewAnnouncementBarDwAnnouncementsRecord
+                                  .postDesc,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodySmallFamily,
+                                    color: Color(0xFF423E3E),
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodySmallFamily),
+                                  ),
+                            ),
+                          ].divide(SizedBox(height: 10.0)),
+                        ),
+                      ),
+                    );
+                  },
                 );
               },
             ),
+          ),
         ],
       ),
     );

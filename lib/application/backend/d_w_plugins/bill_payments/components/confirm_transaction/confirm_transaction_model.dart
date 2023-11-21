@@ -31,9 +31,9 @@ class ConfirmTransactionModel
   // Model for PrimaryButtonLoading component.
   late PrimaryButtonLoadingModel primaryButtonLoadingModel;
   // Stores action output result for [Firestore Query - Query a collection] action in PrimaryButtonLoading widget.
-  BillpaymentSettingsRecord? getBillKey;
-  // Stores action output result for [Firestore Query - Query a collection] action in PrimaryButtonLoading widget.
   DwAppRecord? getAppInfo;
+  // Stores action output result for [Firestore Query - Query a collection] action in PrimaryButtonLoading widget.
+  BillpaymentSettingsRecord? getBillKey;
   // Stores action output result for [Backend Call - API (ValidateCustomer)] action in PrimaryButtonLoading widget.
   ApiCallResponse? apiResultValidatePhoneNumber;
   // Stores action output result for [Backend Call - API (CreateBill)] action in PrimaryButtonLoading widget.

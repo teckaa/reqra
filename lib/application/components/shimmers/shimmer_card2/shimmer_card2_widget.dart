@@ -85,7 +85,7 @@ class _ShimmerCard2WidgetState extends State<ShimmerCard2Widget>
             ))
             .toList();
         return Column(
-          mainAxisSize: MainAxisSize.max,
+          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: List.generate(listOfCards.length, (listOfCardsIndex) {
             final listOfCardsItem = listOfCards[listOfCardsIndex];

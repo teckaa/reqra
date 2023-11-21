@@ -1,23 +1,15 @@
+import '/application/backend/d_w_settings/admin/adverts/users/ads_single_comp/ads_single_comp_widget.dart';
 import '/application/components/shimmers/shimmer_card2/shimmer_card2_widget.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'ads_carousel_comp_widget.dart' show AdsCarouselCompWidget;
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'list_of_ads_widget.dart' show ListOfAdsWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class AdsCarouselCompModel extends FlutterFlowModel<AdsCarouselCompWidget> {
-  ///  State fields for stateful widgets in this component.
-
-  // State field(s) for Carousel widget.
-  CarouselController? carouselController;
-
-  int carouselCurrentIndex = 1;
-
+class ListOfAdsModel extends FlutterFlowModel<ListOfAdsWidget> {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}

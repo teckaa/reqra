@@ -28,6 +28,8 @@ class SidebarCompModel extends FlutterFlowModel<SidebarCompWidget> {
   late SidebarMenuItemModel sidebarMenuItemKYCModel;
   // Model for SidebarMenuItem-Security.
   late SidebarMenuItemModel sidebarMenuItemSecurityModel;
+  // Model for SidebarMenuItem-TransactionSecurity.
+  late SidebarMenuItemModel sidebarMenuItemTransactionSecurityModel;
   // Model for SidebarMenuItem-UserReferral.
   late SidebarMenuItemModel sidebarMenuItemUserReferralModel;
   // Model for SidebarMenuItem-Notifications.
@@ -47,9 +49,9 @@ class SidebarCompModel extends FlutterFlowModel<SidebarCompWidget> {
   // Model for SidebarMenuItem-Password.
   late SidebarMenuItemModel sidebarMenuItemPasswordModel;
   // Model for SidebarMenuItem-Pin.
-  late SidebarMenuItemModel sidebarMenuItemPinModel;
+  late SidebarMenuItemModel sidebarMenuItemPinModel1;
   // Model for SidebarMenuItem-Biometric.
-  late SidebarMenuItemModel sidebarMenuItemBiometricModel;
+  late SidebarMenuItemModel sidebarMenuItemBiometricModel1;
   // Model for SidebarMenuItem-AppInfo.
   late SidebarMenuItemModel sidebarMenuItemAppInfoModel1;
   // Model for SidebarMenuItem-AppLogo.
@@ -69,9 +71,15 @@ class SidebarCompModel extends FlutterFlowModel<SidebarCompWidget> {
   // Model for SidebarMenuItem-RoleAndPermissions.
   late SidebarMenuItemModel sidebarMenuItemRoleAndPermissionsModel;
   // Model for SidebarMenuItem-ManageRecipients.
-  late SidebarMenuItemModel sidebarMenuItemManageRecipientsModel1;
-  // Model for SidebarMenuItem-ManageRecipients.
-  late SidebarMenuItemModel sidebarMenuItemManageRecipientsModel2;
+  late SidebarMenuItemModel sidebarMenuItemManageRecipientsModel;
+  // Model for SidebarMenuItem-ManageSecurity.
+  late SidebarMenuItemModel sidebarMenuItemManageSecurityModel;
+  // Model for SidebarMenuItem-ManageAppAds.
+  late SidebarMenuItemModel sidebarMenuItemManageAppAdsModel;
+  // Model for SidebarMenuItem-Pin.
+  late SidebarMenuItemModel sidebarMenuItemPinModel2;
+  // Model for SidebarMenuItem-Biometric.
+  late SidebarMenuItemModel sidebarMenuItemBiometricModel2;
   // Model for SidebarMenuItem-Dashboard.
   late SidebarMenuItemModel sidebarMenuItemDashboardModel;
   // Model for SidebarMenuItem-Bill.
@@ -122,8 +130,8 @@ class SidebarCompModel extends FlutterFlowModel<SidebarCompWidget> {
   late MenuItemModel menuItemPaymentsModel;
   // Model for MenuItem-Settings.
   late MenuItemModel menuItemSettingsModel1;
-  // Model for SidebarMenuItem-Giftcards.
-  late SidebarMenuItemModel sidebarMenuItemGiftcardsModel;
+  // Model for SidebarMenuItem-Giftcard.
+  late SidebarMenuItemModel sidebarMenuItemGiftcardModel;
   // Model for MenuItem-Inventory.
   late MenuItemModel menuItemInventoryModel2;
   // Model for MenuItem-Orders.
@@ -171,6 +179,8 @@ class SidebarCompModel extends FlutterFlowModel<SidebarCompWidget> {
         createModel(context, () => SidebarMenuItemModel());
     sidebarMenuItemSecurityModel =
         createModel(context, () => SidebarMenuItemModel());
+    sidebarMenuItemTransactionSecurityModel =
+        createModel(context, () => SidebarMenuItemModel());
     sidebarMenuItemUserReferralModel =
         createModel(context, () => SidebarMenuItemModel());
     sidebarMenuItemNotificationsModel =
@@ -189,9 +199,9 @@ class SidebarCompModel extends FlutterFlowModel<SidebarCompWidget> {
         createModel(context, () => SidebarMenuItemModel());
     sidebarMenuItemPasswordModel =
         createModel(context, () => SidebarMenuItemModel());
-    sidebarMenuItemPinModel =
+    sidebarMenuItemPinModel1 =
         createModel(context, () => SidebarMenuItemModel());
-    sidebarMenuItemBiometricModel =
+    sidebarMenuItemBiometricModel1 =
         createModel(context, () => SidebarMenuItemModel());
     sidebarMenuItemAppInfoModel1 =
         createModel(context, () => SidebarMenuItemModel());
@@ -211,9 +221,15 @@ class SidebarCompModel extends FlutterFlowModel<SidebarCompWidget> {
         createModel(context, () => SidebarMenuItemModel());
     sidebarMenuItemRoleAndPermissionsModel =
         createModel(context, () => SidebarMenuItemModel());
-    sidebarMenuItemManageRecipientsModel1 =
+    sidebarMenuItemManageRecipientsModel =
         createModel(context, () => SidebarMenuItemModel());
-    sidebarMenuItemManageRecipientsModel2 =
+    sidebarMenuItemManageSecurityModel =
+        createModel(context, () => SidebarMenuItemModel());
+    sidebarMenuItemManageAppAdsModel =
+        createModel(context, () => SidebarMenuItemModel());
+    sidebarMenuItemPinModel2 =
+        createModel(context, () => SidebarMenuItemModel());
+    sidebarMenuItemBiometricModel2 =
         createModel(context, () => SidebarMenuItemModel());
     sidebarMenuItemDashboardModel =
         createModel(context, () => SidebarMenuItemModel());
@@ -257,7 +273,7 @@ class SidebarCompModel extends FlutterFlowModel<SidebarCompWidget> {
     menuItemOrdersModel2 = createModel(context, () => MenuItemModel());
     menuItemPaymentsModel = createModel(context, () => MenuItemModel());
     menuItemSettingsModel1 = createModel(context, () => MenuItemModel());
-    sidebarMenuItemGiftcardsModel =
+    sidebarMenuItemGiftcardModel =
         createModel(context, () => SidebarMenuItemModel());
     menuItemInventoryModel2 = createModel(context, () => MenuItemModel());
     menuItemOrdersModel3 = createModel(context, () => MenuItemModel());
@@ -294,6 +310,7 @@ class SidebarCompModel extends FlutterFlowModel<SidebarCompWidget> {
     sidebarMenuItemAddressModel1.dispose();
     sidebarMenuItemKYCModel.dispose();
     sidebarMenuItemSecurityModel.dispose();
+    sidebarMenuItemTransactionSecurityModel.dispose();
     sidebarMenuItemUserReferralModel.dispose();
     sidebarMenuItemNotificationsModel.dispose();
     sidebarMenuItemLanguageModel.dispose();
@@ -303,8 +320,8 @@ class SidebarCompModel extends FlutterFlowModel<SidebarCompWidget> {
     sidebarMenuItemDeleteAccountModel.dispose();
     sidebarMenuItemSignOutModel.dispose();
     sidebarMenuItemPasswordModel.dispose();
-    sidebarMenuItemPinModel.dispose();
-    sidebarMenuItemBiometricModel.dispose();
+    sidebarMenuItemPinModel1.dispose();
+    sidebarMenuItemBiometricModel1.dispose();
     sidebarMenuItemAppInfoModel1.dispose();
     sidebarMenuItemAppLogoModel.dispose();
     sidebarMenuItemAppEmailsModel.dispose();
@@ -314,8 +331,11 @@ class SidebarCompModel extends FlutterFlowModel<SidebarCompWidget> {
     sidebarMenuItemCurrencyModel.dispose();
     sidebarMenuItemAnnouncementModel.dispose();
     sidebarMenuItemRoleAndPermissionsModel.dispose();
-    sidebarMenuItemManageRecipientsModel1.dispose();
-    sidebarMenuItemManageRecipientsModel2.dispose();
+    sidebarMenuItemManageRecipientsModel.dispose();
+    sidebarMenuItemManageSecurityModel.dispose();
+    sidebarMenuItemManageAppAdsModel.dispose();
+    sidebarMenuItemPinModel2.dispose();
+    sidebarMenuItemBiometricModel2.dispose();
     sidebarMenuItemDashboardModel.dispose();
     sidebarMenuItemBillModel.dispose();
     sidebarMenuItemBillOrdersModel.dispose();
@@ -341,7 +361,7 @@ class SidebarCompModel extends FlutterFlowModel<SidebarCompWidget> {
     menuItemOrdersModel2.dispose();
     menuItemPaymentsModel.dispose();
     menuItemSettingsModel1.dispose();
-    sidebarMenuItemGiftcardsModel.dispose();
+    sidebarMenuItemGiftcardModel.dispose();
     menuItemInventoryModel2.dispose();
     menuItemOrdersModel3.dispose();
     menuItemSettingsModel2.dispose();

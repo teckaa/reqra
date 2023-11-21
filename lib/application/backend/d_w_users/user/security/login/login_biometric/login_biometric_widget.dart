@@ -9,27 +9,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'biometric_model.dart';
-export 'biometric_model.dart';
+import 'login_biometric_model.dart';
+export 'login_biometric_model.dart';
 
-class BiometricWidget extends StatefulWidget {
-  const BiometricWidget({Key? key}) : super(key: key);
+class LoginBiometricWidget extends StatefulWidget {
+  const LoginBiometricWidget({Key? key}) : super(key: key);
 
   @override
-  _BiometricWidgetState createState() => _BiometricWidgetState();
+  _LoginBiometricWidgetState createState() => _LoginBiometricWidgetState();
 }
 
-class _BiometricWidgetState extends State<BiometricWidget> {
-  late BiometricModel _model;
+class _LoginBiometricWidgetState extends State<LoginBiometricWidget> {
+  late LoginBiometricModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => BiometricModel());
+    _model = createModel(context, () => LoginBiometricModel());
 
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Biometric'});
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'LoginBiometric'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -54,7 +55,7 @@ class _BiometricWidgetState extends State<BiometricWidget> {
     context.watch<FFAppState>();
 
     return Title(
-        title: 'Biometric',
+        title: 'Login Biometric',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: Scaffold(
           key: scaffoldKey,
@@ -78,7 +79,7 @@ class _BiometricWidgetState extends State<BiometricWidget> {
                       size: 30.0,
                     ),
                     onPressed: () async {
-                      logFirebaseEvent('BIOMETRIC_PAGE_arrowLeft2_ICN_ON_TAP');
+                      logFirebaseEvent('LOGIN_BIOMETRIC_arrowLeft2_ICN_ON_TAP');
                       logFirebaseEvent('IconButton_navigate_back');
                       context.pop();
                     },
@@ -142,10 +143,10 @@ class _BiometricWidgetState extends State<BiometricWidget> {
                                       model: _model.titleWithBackButtonModel,
                                       updateCallback: () => setState(() {}),
                                       child: TitleWithBackButtonWidget(
-                                        titleName: 'Biometrics',
+                                        titleName: 'Login Biometrics',
                                         actionPara: () async {
                                           logFirebaseEvent(
-                                              'BIOMETRIC_Container_s7y6sghl_CALLBACK');
+                                              'LOGIN_BIOMETRIC_Container_s7y6sghl_CALLB');
                                           logFirebaseEvent(
                                               'TitleWithBackButton_navigate_back');
                                           context.safePop();

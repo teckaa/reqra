@@ -1,7 +1,7 @@
 import '/application/backend/d_w_dashboard/global/d_w_header/d_w_header_widget.dart';
 import '/application/backend/d_w_dashboard/global/d_w_sidebar/d_w_sidebar_widget.dart';
-import '/application/backend/d_w_settings/admin/adverts/create_ads/create_ads_widget.dart';
-import '/application/backend/d_w_settings/admin/adverts/read_ads/read_ads_widget.dart';
+import '/application/backend/d_w_settings/admin/adverts/admin/components/create_ads/create_ads_widget.dart';
+import '/application/backend/d_w_settings/admin/adverts/admin/components/read_ads/read_ads_widget.dart';
 import '/application/components/buttons/primary_button/primary_button_widget.dart';
 import '/application/components/empty/empty_table/empty_table_widget.dart';
 import '/application/components/empty/no_access_error/no_access_error_widget.dart';
@@ -123,7 +123,7 @@ class _ManageAdsWidgetState extends State<ManageAdsWidget> {
                     updateCallback: () => setState(() {}),
                     updateOnChange: true,
                     child: DWSidebarWidget(
-                      selectedSidebarNav: 'Email Templates',
+                      selectedSidebarNav: 'Manage App Ads',
                     ),
                   ),
                   Expanded(
@@ -185,29 +185,7 @@ class _ManageAdsWidgetState extends State<ManageAdsWidget> {
                                                 ),
                                               ),
                                               Container(
-                                                width: valueOrDefault<double>(
-                                                  () {
-                                                    if (MediaQuery.sizeOf(
-                                                                context)
-                                                            .width <
-                                                        kBreakpointSmall) {
-                                                      return 450.0;
-                                                    } else if (MediaQuery
-                                                                .sizeOf(context)
-                                                            .width <
-                                                        kBreakpointMedium) {
-                                                      return 400.0;
-                                                    } else if (MediaQuery
-                                                                .sizeOf(context)
-                                                            .width <
-                                                        kBreakpointLarge) {
-                                                      return 400.0;
-                                                    } else {
-                                                      return 400.0;
-                                                    }
-                                                  }(),
-                                                  400.0,
-                                                ),
+                                                width: 500.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
@@ -223,7 +201,7 @@ class _ManageAdsWidgetState extends State<ManageAdsWidget> {
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        '5qonxrtp' /* Empower your app's success! St... */,
+                                                        '5qonxrtp' /* Fuel the success of your app! ... */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -602,8 +580,18 @@ class _ManageAdsWidgetState extends State<ManageAdsWidget> {
                                                                     Container(
                                                                       decoration:
                                                                           BoxDecoration(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .lineColor,
+                                                                        color:
+                                                                            () {
+                                                                          if (dataTableDwAppAdsRecord.adsType ==
+                                                                              'TextBase') {
+                                                                            return Color(0xFFD8EBFD);
+                                                                          } else if (dataTableDwAppAdsRecord.adsType ==
+                                                                              'ImageBase') {
+                                                                            return FlutterFlowTheme.of(context).warningSoft;
+                                                                          } else {
+                                                                            return FlutterFlowTheme.of(context).lineColor;
+                                                                          }
+                                                                        }(),
                                                                         borderRadius:
                                                                             BorderRadius.circular(20.0),
                                                                       ),
